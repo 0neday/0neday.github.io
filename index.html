@@ -34,6 +34,32 @@
 
 
 
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="http://blog.coolstar-pc.top/uploads/fonts.css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
 
 
 
@@ -60,12 +86,12 @@
 
 <meta name="description" content="改变世界的是这么一群人，他们寻找梦想中的乐园，当他们找不到时，便亲手创造了她...">
 <meta property="og:type" content="website">
-<meta property="og:title" content="Coolstar's 技术博客">
-<meta property="og:url" content="http://coolstar-pc.top/index.html">
-<meta property="og:site_name" content="Coolstar's 技术博客">
+<meta property="og:title" content="Coolstar's  博客">
+<meta property="og:url" content="http://blog.coolstar-pc.top/index.html">
+<meta property="og:site_name" content="Coolstar's  博客">
 <meta property="og:description" content="改变世界的是这么一群人，他们寻找梦想中的乐园，当他们找不到时，便亲手创造了她...">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Coolstar's 技术博客">
+<meta name="twitter:title" content="Coolstar's  博客">
 <meta name="twitter:description" content="改变世界的是这么一群人，他们寻找梦想中的乐园，当他们找不到时，便亲手创造了她...">
 
 
@@ -87,9 +113,9 @@
 
 
 
-  <link rel="canonical" href="http://coolstar-pc.top/"/>
+  <link rel="canonical" href="http://blog.coolstar-pc.top/"/>
 
-  <title> Coolstar's 技术博客 </title>
+  <title> Coolstar's  博客 </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -122,7 +148,7 @@
   <div class="custom-logo-site-title">
     <a href="/"  class="brand" rel="start">
       <span class="logo-line-before"><i></i></span>
-      <span class="site-title">Coolstar's 技术博客</span>
+      <span class="site-title">Coolstar's  博客</span>
       <span class="logo-line-after"><i></i></span>
     </a>
   </div>
@@ -142,6 +168,36 @@
 
   
     <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
       
         
         <li class="menu-item menu-item-tags">
@@ -354,8 +410,7 @@
 
       
         
-          <p>&nbsp;</p>
-<p>SSL 证书一般是由 OpenSSL 工具生成 <a href="https://en.wikipedia.org/wiki/X.509">x509</a> 证书（标准的<a href="https://en.wikipedia.org/wiki/Public_key_infrastructure"> PKI</a> 管理工具），适用于大部分的 web server，而基于 java 的 web 应用程序（Tomcat），默认情况下，使用 <a href="https://en.wikipedia.org/wiki/Keystore">jks</a> 类型证书。因此，在使用 <a href="https://tomcat.apache.org/tomcat-7.0-doc/ssl-howto.html#Configuration">JSSE</a> 配置 SSL 之前，需要将 x509 类型的证书转换成 jks 类型的证书。</p>
+          <p>SSL 证书一般是由 OpenSSL 工具生成 <a href="https://en.wikipedia.org/wiki/X.509">x509</a> 证书（标准的<a href="https://en.wikipedia.org/wiki/Public_key_infrastructure"> PKI</a> 管理工具），适用于大部分的 web server，而基于 java 的 web 应用程序（Tomcat），默认情况下，使用 <a href="https://en.wikipedia.org/wiki/Keystore">jks</a> 类型证书。因此，在使用 <a href="https://tomcat.apache.org/tomcat-7.0-doc/ssl-howto.html#Configuration">JSSE</a> 配置 SSL 之前，需要将 x509 类型的证书转换成 jks 类型的证书。</p>
 <p><strong>思路：</strong>先利用 openssl 将 crt 格式的证书转换为 <a href="https://en.wikipedia.org/wiki/PKCS_12">pkcs 12</a>，再使用 keytool 将pkcs 12 转换成 jks。<br>
           <div class="post-more-link text-center">
             <a class="btn" href="/2016/06/27/apache-tomcat-jsse-ssl/#more" rel="contents">
@@ -648,8 +703,6 @@
         
           <p>&nbsp;</p>
 <p><strong>目标：</strong>使用 Nginx 作为反向代理服务器，重定向 80/443 port 的数据到 Apache Tomcat（Listening 127.0.0.1:8080），以提高 web server 的响应速度和性能，提升用户的访问体验。</p>
-<p> <img src="/uploads/2016/06/tt.png" alt="tt"> </p>
-<h5 id="一、-Nginx-配置"><a href="#一、-Nginx-配置" class="headerlink" title="一、 Nginx 配置"></a>一、 Nginx 配置</h5><p>1.将Nginx配置成反向代理服务器，参考 <a href="http://www.mkyong.com/nginx/nginx-apache-tomcat-configuration-example/">example</a><br>
           <div class="post-more-link text-center">
             <a class="btn" href="/2016/06/07/nginx-apache-tomcat-configuration/#more" rel="contents">
               阅读全文 &raquo;
@@ -941,7 +994,8 @@
           <p>&nbsp;</p>
 <p><a href="http://drops.wooyun.org/papers/15430">CVE-2016-3081</a>, 官方为S2-032漏洞。在开启动态方法调用 <a href="https://struts.apache.org/docs/action-configuration.html#ActionConfiguration-DynamicMethodInvocation">DMI</a> （Dynamic Method Invocation）的情况下，会被攻击者实现远程代码执行攻击。受影响的版本有2.3.18-2.3.28(除 2.3.20.2 and 2.3.24.2)。</p>
 <h5 id="一、漏洞触发条件"><a href="#一、漏洞触发条件" class="headerlink" title="一、漏洞触发条件"></a>一、漏洞触发条件</h5><p>1. struts.xml里开启DMI</p>
-<pre class="lang:xhtml decode:true ">&lt;constant name="struts.enable.DynamicMethodInvocation" value="true"/&gt;</pre>
+<pre><code class="java">&lt;constant name=<span class="string">"struts.enable.DynamicMethodInvocation"</span> value=<span class="string">"true"</span>&gt;
+</code></pre>
           <div class="post-more-link text-center">
             <a class="btn" href="/2016/05/25/struts2-exploit-cve-2016-3081/#more" rel="contents">
               阅读全文 &raquo;

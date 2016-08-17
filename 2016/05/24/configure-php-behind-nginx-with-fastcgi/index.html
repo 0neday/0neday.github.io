@@ -34,6 +34,32 @@
 
 
 
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="http://blog.coolstar-pc.top/uploads/fonts.css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
 
 
 
@@ -62,17 +88,17 @@
 二、原理Web Server, 如Nginx、Apache，本身不会对外部 script 直接调用或者解析，所有的 script（如PHP）必须通过FastCGI接口来调用。FastCG">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Configure PHP behind Nginx with FastCGI">
-<meta property="og:url" content="http://coolstar-pc.top/2016/05/24/configure-php-behind-nginx-with-fastcgi/index.html">
-<meta property="og:site_name" content="Coolstar's 技术博客">
+<meta property="og:url" content="http://blog.coolstar-pc.top/2016/05/24/configure-php-behind-nginx-with-fastcgi/index.html">
+<meta property="og:site_name" content="Coolstar's  博客">
 <meta property="og:description" content="一、FastCGIFastCGI (Common Gateway Interface), 是 Web Server 与 动态脚本 script 之间的通信接口。更多有关FastCGI的信息 PHP manual.
 二、原理Web Server, 如Nginx、Apache，本身不会对外部 script 直接调用或者解析，所有的 script（如PHP）必须通过FastCGI接口来调用。FastCG">
-<meta property="og:image" content="http://coolstar-pc.top/uploads/2016/05/140224291.png">
-<meta property="og:updated_time" content="2016-08-17T13:32:48.122Z">
+<meta property="og:image" content="http://blog.coolstar-pc.top/uploads/2016/05/140224291.png">
+<meta property="og:updated_time" content="2016-08-17T22:50:17.559Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Configure PHP behind Nginx with FastCGI">
 <meta name="twitter:description" content="一、FastCGIFastCGI (Common Gateway Interface), 是 Web Server 与 动态脚本 script 之间的通信接口。更多有关FastCGI的信息 PHP manual.
 二、原理Web Server, 如Nginx、Apache，本身不会对外部 script 直接调用或者解析，所有的 script（如PHP）必须通过FastCGI接口来调用。FastCG">
-<meta name="twitter:image" content="http://coolstar-pc.top/uploads/2016/05/140224291.png">
+<meta name="twitter:image" content="http://blog.coolstar-pc.top/uploads/2016/05/140224291.png">
 
 
 
@@ -93,9 +119,9 @@
 
 
 
-  <link rel="canonical" href="http://coolstar-pc.top/2016/05/24/configure-php-behind-nginx-with-fastcgi/"/>
+  <link rel="canonical" href="http://blog.coolstar-pc.top/2016/05/24/configure-php-behind-nginx-with-fastcgi/"/>
 
-  <title> Configure PHP behind Nginx with FastCGI | Coolstar's 技术博客 </title>
+  <title> Configure PHP behind Nginx with FastCGI | Coolstar's  博客 </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -126,7 +152,7 @@
   <div class="custom-logo-site-title">
     <a href="/"  class="brand" rel="start">
       <span class="logo-line-before"><i></i></span>
-      <span class="site-title">Coolstar's 技术博客</span>
+      <span class="site-title">Coolstar's  博客</span>
       <span class="logo-line-after"><i></i></span>
     </a>
   </div>
@@ -146,6 +172,36 @@
 
   
     <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
       
         
         <li class="menu-item menu-item-tags">
@@ -261,18 +317,39 @@
         <h5 id="一、FastCGI"><a href="#一、FastCGI" class="headerlink" title="一、FastCGI"></a>一、FastCGI</h5><p>FastCGI (Common Gateway Interface), 是 Web Server 与 动态脚本 script 之间的通信接口。更多有关FastCGI的信息 <a href="http://php.net/manual/en/install.fpm.php" target="_blank" rel="external">PHP manual</a>.</p>
 <h5 id="二、原理"><a href="#二、原理" class="headerlink" title="二、原理"></a>二、原理</h5><p>Web Server, 如Nginx、Apache，本身不会对外部 script 直接调用或者解析，所有的 script（如PHP）必须通过FastCGI接口来调用。FastCGI 接口通过 socket 或者daemon（绑定一个特定的端口9000）与 Web Server 交互。</p>
 <p><img src="/uploads/2016/05/140224291.png" alt="140224291"><br><a id="more"></a></p>
-<h5 id="三、配置"><a href="#三、配置" class="headerlink" title="三、配置"></a>三、配置</h5><p>1.下载最新版的 <a href="http://php.net/downloads.php" target="_blank" rel="external">php</a></p>
-<pre class="lang:sh decode:true">wget -c http://am1.php.net/distributions/php-7.0.6.tar.gz</pre>
-
+<h5 id="三、配置"><a href="#三、配置" class="headerlink" title="三、配置"></a>三、配置</h5><p>1.下载最新版的 <a href="http://php.net/downloads.php" target="_blank" rel="external">php</a><br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">wget -c http://am1.php.net/distributions/php-7.0.6.tar.gz</div></pre></td></tr></table></figure></p>
 <p>2.编译</p>
 <p>由于 <a href="https://github.com/php-build/php-build/issues/348" target="_blank" rel="external">php7</a>，已经彻底放弃了–with-myql 选项，改用<a href="https://dev.mysql.com/downloads/connector/php-mysqlnd/" target="_blank" rel="external"> mysqlnd</a>，如果直接用此选择，而不选择 mysqli 和 pdo，会导致连接mysql出错,因为 php script 找不到连接mysql 的驱动。添加 –enable-fpm 选项，使能 FastCGI.</p>
-<p><pre class="lang:sh decode:true">./configure –prefix=/opt/php7 \<br>–enable-fpm \<br>–enable-mysqlnd \<br>–with-mysqli=mysqlnd \<br>–with-pdo-mysql=mysqlnd \<br>–with-mysql-sock=/var/run/mysqld/mysqld.sock \<br>–enable-mbstring \<br>–enable-sockets</pre><br>3. 更改配置文件</p>
+<pre><code class="bash">./configure --prefix=/opt/php7 \
+--enable-fpm \
+--enable-mysqlnd \
+--with-mysqli=mysqlnd \
+--with-pdo-mysql=mysqlnd \
+--with-mysql-sock=/var/run/mysqld/mysqld.sock \
+--enable-mbstring \
+--enable-sockets
+</code></pre>
+<p>3. 更改配置文件</p>
 <p>采用 socket 方式连接 webserver</p>
-<p><pre class="lang:sh decode:true">vim /opt/php7/etc/php-fpm.d/www.conf</pre><br>修改以下参数</p>
-<p><pre class="lang:sh decode:true ">user = coolstar-pc //与nginx配置的user相同<br>group = coolstar-pc<br>;listen = 127.0.0.1:9000<br>listen = /opt/php7/var/run/php7-fpm.sock<br>listen.owner = coolstar-pc<br>listen.group = coolstar-pc</pre><br>copy 启动脚本到 /etc/init.d</p>
-<p><pre class="lang:sh decode:true ">cp ~/php-7.0.6/sapi/fpm/init.d.php-fpm /etc/init.d/php-fpm<br>chmod 777 /etc/init.d/php-fpm<br>service php-fpm restart</pre><br>4.编辑 nginx 站点配置文件，添加对 Fast CGI 的支持</p>
+<pre><code class="bash">vim /opt/php7/etc/php-fpm.d/www.conf
+</code></pre>
+<p>修改以下参数</p>
+<pre><code class="java">user = coolstar-pc <span class="comment">//与nginx配置的user相同</span>
+group = coolstar-pc
+;listen = <span class="number">127.0</span>.0.1:<span class="number">9000</span>
+listen = /opt/php7/var/run/php7-fpm.sock
+listen.owner = coolstar-pc
+listen.group = coolstar-pc
+</code></pre>
+<p>copy 启动脚本到 /etc/init.d</p>
+<pre><code class="bash">cp ~/php-7.0.6/sapi/fpm/init.d.php-fpm /etc/init.d/php-fpm 
+chmod 777 /etc/init.d/php-fpm 
+service php-fpm restart
+</code></pre>
+<p>4.编辑 nginx 站点配置文件，添加对 Fast CGI 的支持</p>
 <p>add 下面一行数据到站点 <a href="/uploads/note/blog">配置文件</a></p>
-<p><pre class="lang:sh decode:true ">fastcgi_pass unix:/opt/php7/var/run/php7-fpm.sock;</pre><br>&nbsp;</p>
+<pre><code class="bash">fastcgi_pass unix:/opt/php7/var/run/php7-fpm.sock;
+</code></pre>
 <p>&nbsp;</p>
 <p>&nbsp;</p>
 

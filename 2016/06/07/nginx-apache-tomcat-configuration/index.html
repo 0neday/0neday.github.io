@@ -34,6 +34,32 @@
 
 
 
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="http://blog.coolstar-pc.top/uploads/fonts.css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
 
 
 
@@ -59,26 +85,20 @@
 
 
 <meta name="description" content="&amp;nbsp;
-目标：使用 Nginx 作为反向代理服务器，重定向 80/443 port 的数据到 Apache Tomcat（Listening 127.0.0.1:8080），以提高 web server 的响应速度和性能，提升用户的访问体验。
-  
-一、 Nginx 配置1.将Nginx配置成反向代理服务器，参考 example">
+目标：使用 Nginx 作为反向代理服务器，重定向 80/443 port 的数据到 Apache Tomcat（Listening 127.0.0.1:8080），以提高 web server 的响应速度和性能，提升用户的访问体验。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Nginx + Apache Tomcat Configuration">
-<meta property="og:url" content="http://coolstar-pc.top/2016/06/07/nginx-apache-tomcat-configuration/index.html">
-<meta property="og:site_name" content="Coolstar's 技术博客">
+<meta property="og:url" content="http://blog.coolstar-pc.top/2016/06/07/nginx-apache-tomcat-configuration/index.html">
+<meta property="og:site_name" content="Coolstar's  博客">
 <meta property="og:description" content="&amp;nbsp;
-目标：使用 Nginx 作为反向代理服务器，重定向 80/443 port 的数据到 Apache Tomcat（Listening 127.0.0.1:8080），以提高 web server 的响应速度和性能，提升用户的访问体验。
-  
-一、 Nginx 配置1.将Nginx配置成反向代理服务器，参考 example">
-<meta property="og:image" content="http://coolstar-pc.top/uploads/2016/06/tt.png">
-<meta property="og:updated_time" content="2016-08-17T13:14:22.792Z">
+目标：使用 Nginx 作为反向代理服务器，重定向 80/443 port 的数据到 Apache Tomcat（Listening 127.0.0.1:8080），以提高 web server 的响应速度和性能，提升用户的访问体验。">
+<meta property="og:image" content="http://blog.coolstar-pc.top/uploads/2016/06/tt.png">
+<meta property="og:updated_time" content="2016-08-17T23:02:56.186Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Nginx + Apache Tomcat Configuration">
 <meta name="twitter:description" content="&amp;nbsp;
-目标：使用 Nginx 作为反向代理服务器，重定向 80/443 port 的数据到 Apache Tomcat（Listening 127.0.0.1:8080），以提高 web server 的响应速度和性能，提升用户的访问体验。
-  
-一、 Nginx 配置1.将Nginx配置成反向代理服务器，参考 example">
-<meta name="twitter:image" content="http://coolstar-pc.top/uploads/2016/06/tt.png">
+目标：使用 Nginx 作为反向代理服务器，重定向 80/443 port 的数据到 Apache Tomcat（Listening 127.0.0.1:8080），以提高 web server 的响应速度和性能，提升用户的访问体验。">
+<meta name="twitter:image" content="http://blog.coolstar-pc.top/uploads/2016/06/tt.png">
 
 
 
@@ -99,9 +119,9 @@
 
 
 
-  <link rel="canonical" href="http://coolstar-pc.top/2016/06/07/nginx-apache-tomcat-configuration/"/>
+  <link rel="canonical" href="http://blog.coolstar-pc.top/2016/06/07/nginx-apache-tomcat-configuration/"/>
 
-  <title> Nginx + Apache Tomcat Configuration | Coolstar's 技术博客 </title>
+  <title> Nginx + Apache Tomcat Configuration | Coolstar's  博客 </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -132,7 +152,7 @@
   <div class="custom-logo-site-title">
     <a href="/"  class="brand" rel="start">
       <span class="logo-line-before"><i></i></span>
-      <span class="site-title">Coolstar's 技术博客</span>
+      <span class="site-title">Coolstar's  博客</span>
       <span class="logo-line-after"><i></i></span>
     </a>
   </div>
@@ -152,6 +172,36 @@
 
   
     <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
       
         
         <li class="menu-item menu-item-tags">
@@ -266,17 +316,12 @@
       
         <p>&nbsp;</p>
 <p><strong>目标：</strong>使用 Nginx 作为反向代理服务器，重定向 80/443 port 的数据到 Apache Tomcat（Listening 127.0.0.1:8080），以提高 web server 的响应速度和性能，提升用户的访问体验。</p>
+ <a id="more"></a>
 <p> <img src="/uploads/2016/06/tt.png" alt="tt"> </p>
-<h5 id="一、-Nginx-配置"><a href="#一、-Nginx-配置" class="headerlink" title="一、 Nginx 配置"></a>一、 Nginx 配置</h5><p>1.将Nginx配置成反向代理服务器，参考 <a href="http://www.mkyong.com/nginx/nginx-apache-tomcat-configuration-example/" target="_blank" rel="external">example</a><br><a id="more"></a></p>
-<p><pre class="lang:python decode:true ">server {<br>        …..<br>    location / {<br>        proxy_set_header X-Forwarded-Host $host;<br>        proxy_set_header X-Forwarded-Server $host;<br>        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;<br>        proxy_pass <a href="http://127.0.0.1:8080/" target="_blank" rel="external">http://127.0.0.1:8080/</a>;<br>    }<br>        …..<br>}</pre><br>2.添加缓存 <a href="https://www.nginx.com/blog/nginx-caching-guide/" target="_blank" rel="external">cache</a></p>
-<p><pre class="lang:sh decode:true">proxy_cache_path /opt/nginx/cache levels=1:2 keys_zone=my_cache:10m max_size=10g inactive=60m use_temp_path=off;<br>server {<br>    ….</pre></p>
-<pre><code>proxy_cache my_cache;
-proxy_cache_valid  200 302  60m;
-proxy_cache_valid  404      1m;
-client_max_body_size 20M;
-
-    .....
-</code></pre><p>}<br>inactive 表示 cache 60 分钟后失效。</p>
+<h5 id="一、-Nginx-配置"><a href="#一、-Nginx-配置" class="headerlink" title="一、 Nginx 配置"></a>一、 Nginx 配置</h5><p>1.将Nginx配置成反向代理服务器，参考 <a href="http://www.mkyong.com/nginx/nginx-apache-tomcat-configuration-example/" target="_blank" rel="external">example</a></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">server &#123;</div><div class="line">        .....</div><div class="line">	location / &#123;</div><div class="line">		proxy_set_header X-Forwarded-Host <span class="variable">$host</span>;</div><div class="line">		proxy_set_header X-Forwarded-Server <span class="variable">$host</span>;</div><div class="line">		proxy_set_header X-Forwarded-For <span class="variable">$proxy_add_x_forwarded_for</span>;</div><div class="line">		proxy_pass http://127.0.0.1:8080/;</div><div class="line">	&#125;</div><div class="line">        .....</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>2.添加缓存 <a href="https://www.nginx.com/blog/nginx-caching-guide/" target="_blank" rel="external">cache</a><br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">proxy_cache_path /opt/nginx/cache levels=1:2 keys_zone=my_cache:10m max_size=10g inactive=60m use_temp_path=off;</div><div class="line">server &#123;</div><div class="line">	....</div><div class="line"></div><div class="line">	proxy_cache my_cache;</div><div class="line">	proxy_cache_valid  200 302  60m;</div><div class="line">	proxy_cache_valid  404      1m;</div><div class="line">	client_max_body_size 20M;</div><div class="line"></div><div class="line">        .....</div><div class="line"></div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>inactive 表示 cache 60 分钟后失效。</p>
 <p>http status 为 200 和 302 时，cache</p>
 <p>3.最终配置 <a href="/uploads/note/tomcat-reverse-proxy">demo</a></p>
 <h5 id="二、Apache-Tomcat-配置"><a href="#二、Apache-Tomcat-配置" class="headerlink" title="二、Apache Tomcat 配置"></a>二、Apache Tomcat 配置</h5><p>修改 <a href="http://dl.coolstar-pc.top/Server-conifg/note/server.xml" target="_blank" rel="external">server.xml</a>, 使用环路地址 localhost，最大程度保证安全性。</p>
