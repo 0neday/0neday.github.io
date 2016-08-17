@@ -84,29 +84,17 @@
 
 
 
-<meta name="description" content="&amp;nbsp;
-目标：使用 Nginx 作为反向代理服务器，重定向 80/443 port 的数据到 Apache Tomcat（Listening 127.0.0.1:8080），以提高 web server 的响应速度和性能，提升用户的访问体验。
-
-一、 Nginx 配置1.将Nginx配置成反向代理服务器，参考 example
-server {        …..    location /">
+<meta name="description" content="使用 Nginx 作为反向代理服务器，重定向 80/443 port 的数据到 Apache Tomcat（Listening 127.0.0.1:8080）">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Nginx + Apache Tomcat Configuration">
 <meta property="og:url" content="http://coolstar-pc.top/2016/06/07/nginx-apache-tomcat-configuration/index.html">
-<meta property="og:site_name" content="Coolstar's Note">
-<meta property="og:description" content="&amp;nbsp;
-目标：使用 Nginx 作为反向代理服务器，重定向 80/443 port 的数据到 Apache Tomcat（Listening 127.0.0.1:8080），以提高 web server 的响应速度和性能，提升用户的访问体验。
-
-一、 Nginx 配置1.将Nginx配置成反向代理服务器，参考 example
-server {        …..    location /">
+<meta property="og:site_name" content="Coolstar's 技术博客">
+<meta property="og:description" content="使用 Nginx 作为反向代理服务器，重定向 80/443 port 的数据到 Apache Tomcat（Listening 127.0.0.1:8080）">
 <meta property="og:image" content="http://coolstar-pc.top/uploads/2016/06/tt.png">
-<meta property="og:updated_time" content="2016-08-17T10:52:34.428Z">
+<meta property="og:updated_time" content="2016-08-17T11:34:05.447Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Nginx + Apache Tomcat Configuration">
-<meta name="twitter:description" content="&amp;nbsp;
-目标：使用 Nginx 作为反向代理服务器，重定向 80/443 port 的数据到 Apache Tomcat（Listening 127.0.0.1:8080），以提高 web server 的响应速度和性能，提升用户的访问体验。
-
-一、 Nginx 配置1.将Nginx配置成反向代理服务器，参考 example
-server {        …..    location /">
+<meta name="twitter:description" content="使用 Nginx 作为反向代理服务器，重定向 80/443 port 的数据到 Apache Tomcat（Listening 127.0.0.1:8080）">
 <meta name="twitter:image" content="http://coolstar-pc.top/uploads/2016/06/tt.png">
 
 
@@ -115,7 +103,7 @@ server {        …..    location /">
   var NexT = window.NexT || {};
   var CONFIG = {
     scheme: 'Mist',
-    sidebar: {"position":"left","display":"post"},
+    sidebar: {"position":"left","display":"always"},
     fancybox: true,
     motion: true,
     duoshuo: {
@@ -130,7 +118,7 @@ server {        …..    location /">
 
   <link rel="canonical" href="http://coolstar-pc.top/2016/06/07/nginx-apache-tomcat-configuration/"/>
 
-  <title> Nginx + Apache Tomcat Configuration | Coolstar's Note </title>
+  <title> Nginx + Apache Tomcat Configuration | Coolstar's 技术博客 </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -161,7 +149,7 @@ server {        …..    location /">
   <div class="custom-logo-site-title">
     <a href="/"  class="brand" rel="start">
       <span class="logo-line-before"><i></i></span>
-      <span class="site-title">Coolstar's Note</span>
+      <span class="site-title">Coolstar's 技术博客</span>
       <span class="logo-line-after"><i></i></span>
     </a>
   </div>
@@ -203,12 +191,12 @@ server {        …..    location /">
         </li>
       
         
-        <li class="menu-item menu-item-archives">
-          <a href="/archives" rel="section">
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
             
-            归档
+            标签
           </a>
         </li>
       
@@ -428,11 +416,11 @@ client_max_body_size 20M;
                src="/uploads/avatar1.png"
                alt="coolstar" />
           <p class="site-author-name" itemprop="name">coolstar</p>
-          <p class="site-description motion-element" itemprop="description"></p>
+          <p class="site-description motion-element" itemprop="description">改变世界的是这么一群人，他们寻找梦想中的乐园，当他们找不到时，便亲手创造了她...，爱开源、喜欢node.js、前端js、oracle数据库、分布式技术...</p>
         </div>
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
-            <a href="/archives">
+            <a href="/">
               <span class="site-state-item-count">10</span>
               <span class="site-state-item-name">日志</span>
             </a>

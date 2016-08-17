@@ -84,49 +84,16 @@
 
 
 
-<meta name="description" content="MySQL 5.7 主要特性：
-
-更好的性能：对于多核CPU、固态硬盘，有着更好的优化
-更好的InnoDB存储引擎
-更为健壮的复制功能
-更好的优化器
-原生JSON类型的支持
-更好的地理信息服务支持：支持GeoJSON，GeoHash特性
-新增sys库：新版 mysql 5.7.12 编译、安装以及配置注意事项：
-
-1. 编译
-cmake -DCMAKE_INSTALL_PREFIX=/opt/my">
+<meta name="description" content="MySQL 5.7 主要特性及其配置">
 <meta property="og:type" content="article">
 <meta property="og:title" content="MySQL 5.7.12 Compile and Install">
 <meta property="og:url" content="http://coolstar-pc.top/2016/05/27/mysql-5-7-12-compile-and-install/index.html">
-<meta property="og:site_name" content="Coolstar's Note">
-<meta property="og:description" content="MySQL 5.7 主要特性：
-
-更好的性能：对于多核CPU、固态硬盘，有着更好的优化
-更好的InnoDB存储引擎
-更为健壮的复制功能
-更好的优化器
-原生JSON类型的支持
-更好的地理信息服务支持：支持GeoJSON，GeoHash特性
-新增sys库：新版 mysql 5.7.12 编译、安装以及配置注意事项：
-
-1. 编译
-cmake -DCMAKE_INSTALL_PREFIX=/opt/my">
-<meta property="og:updated_time" content="2016-08-17T11:21:34.218Z">
+<meta property="og:site_name" content="Coolstar's 技术博客">
+<meta property="og:description" content="MySQL 5.7 主要特性及其配置">
+<meta property="og:updated_time" content="2016-08-17T11:29:10.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="MySQL 5.7.12 Compile and Install">
-<meta name="twitter:description" content="MySQL 5.7 主要特性：
-
-更好的性能：对于多核CPU、固态硬盘，有着更好的优化
-更好的InnoDB存储引擎
-更为健壮的复制功能
-更好的优化器
-原生JSON类型的支持
-更好的地理信息服务支持：支持GeoJSON，GeoHash特性
-新增sys库：新版 mysql 5.7.12 编译、安装以及配置注意事项：
-
-1. 编译
-cmake -DCMAKE_INSTALL_PREFIX=/opt/my">
+<meta name="twitter:description" content="MySQL 5.7 主要特性及其配置">
 
 
 
@@ -134,7 +101,7 @@ cmake -DCMAKE_INSTALL_PREFIX=/opt/my">
   var NexT = window.NexT || {};
   var CONFIG = {
     scheme: 'Mist',
-    sidebar: {"position":"left","display":"post"},
+    sidebar: {"position":"left","display":"always"},
     fancybox: true,
     motion: true,
     duoshuo: {
@@ -149,7 +116,7 @@ cmake -DCMAKE_INSTALL_PREFIX=/opt/my">
 
   <link rel="canonical" href="http://coolstar-pc.top/2016/05/27/mysql-5-7-12-compile-and-install/"/>
 
-  <title> MySQL 5.7.12 Compile and Install | Coolstar's Note </title>
+  <title> MySQL 5.7.12 Compile and Install | Coolstar's 技术博客 </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -180,7 +147,7 @@ cmake -DCMAKE_INSTALL_PREFIX=/opt/my">
   <div class="custom-logo-site-title">
     <a href="/"  class="brand" rel="start">
       <span class="logo-line-before"><i></i></span>
-      <span class="site-title">Coolstar's Note</span>
+      <span class="site-title">Coolstar's 技术博客</span>
       <span class="logo-line-after"><i></i></span>
     </a>
   </div>
@@ -222,12 +189,12 @@ cmake -DCMAKE_INSTALL_PREFIX=/opt/my">
         </li>
       
         
-        <li class="menu-item menu-item-archives">
-          <a href="/archives" rel="section">
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
             
-            归档
+            标签
           </a>
         </li>
       
@@ -455,11 +422,11 @@ cmake -DCMAKE_INSTALL_PREFIX=/opt/my">
                src="/uploads/avatar1.png"
                alt="coolstar" />
           <p class="site-author-name" itemprop="name">coolstar</p>
-          <p class="site-description motion-element" itemprop="description"></p>
+          <p class="site-description motion-element" itemprop="description">改变世界的是这么一群人，他们寻找梦想中的乐园，当他们找不到时，便亲手创造了她...，爱开源、喜欢node.js、前端js、oracle数据库、分布式技术...</p>
         </div>
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
-            <a href="/archives">
+            <a href="/">
               <span class="site-state-item-count">10</span>
               <span class="site-state-item-name">日志</span>
             </a>

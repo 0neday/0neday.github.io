@@ -84,12 +84,15 @@
 
 
 
+<meta name="description" content="改变世界的是这么一群人，他们寻找梦想中的乐园，当他们找不到时，便亲手创造了她...，爱开源、喜欢node.js、前端js、oracle数据库、分布式技术...">
 <meta property="og:type" content="website">
-<meta property="og:title" content="Coolstar's Note">
+<meta property="og:title" content="Coolstar's 技术博客">
 <meta property="og:url" content="http://coolstar-pc.top/index.html">
-<meta property="og:site_name" content="Coolstar's Note">
+<meta property="og:site_name" content="Coolstar's 技术博客">
+<meta property="og:description" content="改变世界的是这么一群人，他们寻找梦想中的乐园，当他们找不到时，便亲手创造了她...，爱开源、喜欢node.js、前端js、oracle数据库、分布式技术...">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Coolstar's Note">
+<meta name="twitter:title" content="Coolstar's 技术博客">
+<meta name="twitter:description" content="改变世界的是这么一群人，他们寻找梦想中的乐园，当他们找不到时，便亲手创造了她...，爱开源、喜欢node.js、前端js、oracle数据库、分布式技术...">
 
 
 
@@ -97,7 +100,7 @@
   var NexT = window.NexT || {};
   var CONFIG = {
     scheme: 'Mist',
-    sidebar: {"position":"left","display":"post"},
+    sidebar: {"position":"left","display":"always"},
     fancybox: true,
     motion: true,
     duoshuo: {
@@ -112,7 +115,7 @@
 
   <link rel="canonical" href="http://coolstar-pc.top/"/>
 
-  <title> Coolstar's Note </title>
+  <title> Coolstar's 技术博客 </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -145,7 +148,7 @@
   <div class="custom-logo-site-title">
     <a href="/"  class="brand" rel="start">
       <span class="logo-line-before"><i></i></span>
-      <span class="site-title">Coolstar's Note</span>
+      <span class="site-title">Coolstar's 技术博客</span>
       <span class="logo-line-after"><i></i></span>
     </a>
   </div>
@@ -187,12 +190,12 @@
         </li>
       
         
-        <li class="menu-item menu-item-archives">
-          <a href="/archives" rel="section">
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
             
-            归档
+            标签
           </a>
         </li>
       
@@ -301,17 +304,12 @@
 
       
         
-          
-            <p>上次，我们讨论了在 Apache Tomcat 上，使用 JSSE 配置 SSL。可以看出，使用 keytool 将 x509 类型的证书转换成 java 应用程序所支持的 jks 比较繁琐（不仅需要导入 user 证书，还需要导入中间 CA ），另外，不使用 <a href="https://tomcat.apache.org/tomcat-7.0-doc/apr.html" target="_blank" rel="external">APR</a> ，在一定程度上，削弱了 Tomcat 本身具有的性能。</p>
-<p><strong>步骤：</strong></p>
-<p>1. 编译，获取 libtcnative 共享库</p>
-<p><pre class="lang:sh decode:true">cd $CATALINA_HOME/bin/tomcat-native-1.1.23-src/jni/native<br>./configure  –with-apr=/usr/local/apr<br>             –prefix=/opt/apache-tomcat-7</pre><br>2. 添加环境变量 LD_LIBRARY_PATH</p>
-<p>编辑</p>
-<p><pre class="lang:sh decode:true ">$CATALINA_HOME／bin</pre><br>下的setenv.sh文件，添加以下2行</p>
-<p><pre class="lang:sh decode:true ">LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$CATALINA_HOME/lib<br>export LD_LIBRARY_PATH</pre><br>3. 编辑 server.xml</p>
-<p><pre class="lang:sh decode:true ">&lt;Connector<br>    protocol=”org.apache.coyote.http11.Http11AprProtocol”<br>    adress=”127.0.0.1”<br>    port=”8443” maxThreads=”200”<br>    scheme=”https” secure=”true” SSLEnabled=”true”<br>    SSLCertificateFile=”/opt/apache-tomcat-7/ssl/coolstar-pc.crt”<br>    SSLCertificateKeyFile=”/opt/apache-tomcat-7/ssl/coolstar-pc.key”<br>    SSLVerifyClient=”optional” SSLProtocol=”TLSv1+TLSv1.1+TLSv1.2” /&gt;</pre><br>&nbsp;</p>
-
-          
+          使用 APR 配置 SSL
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2016/06/28/apache-tomcat-e4-bd-bf-e7-94-a8-apr-e9-85-8d-e7-bd-ae-ssl/">
+              阅读全文 &raquo;
+            </a>
+          </div>
         
       
     </div>
@@ -402,21 +400,12 @@
 
       
         
-          
-            <p>&nbsp;</p>
-<p>SSL 证书一般是由 OpenSSL 工具生成 <a href="https://en.wikipedia.org/wiki/X.509" target="_blank" rel="external">x509</a> 证书（标准的<a href="https://en.wikipedia.org/wiki/Public_key_infrastructure" target="_blank" rel="external"> PKI</a> 管理工具），适用于大部分的 web server，而基于 java 的 web 应用程序（Tomcat），默认情况下，使用 <a href="https://en.wikipedia.org/wiki/Keystore" target="_blank" rel="external">jks</a> 类型证书。因此，在使用 <a href="https://tomcat.apache.org/tomcat-7.0-doc/ssl-howto.html#Configuration" target="_blank" rel="external">JSSE</a> 配置 SSL 之前，需要将 x509 类型的证书转换成 jks 类型的证书。</p>
-<p><strong>思路：</strong>先利用 openssl 将 crt 格式的证书转换为 <a href="https://en.wikipedia.org/wiki/PKCS_12" target="_blank" rel="external">pkcs 12</a>，再使用 keytool 将pkcs 12 转换成 jks。<br>第一步，从key和crt生成pkcs12格式 </p>
-<pre class="lang:sh decode:true "> openssl pkcs12 -export -in mycert.crt -inkey mykey.key 
-               -out mycert.p12 -name tomcat 
-               -CAfile myCA.crt -caname root -chain </pre>
-
-<p>第二步 生成tomcat需要的keystore</p>
-<p><pre class="lang:sh decode:true "> keytool -importkeystore -v  -srckeystore mycert.p12<br>        -srcstoretype pkcs12 -srcstorepass 123456<br>        -destkeystore tomcat.keystore -deststoretype jks<br>        -deststorepass 123456</pre><br>其中，123456 为第一步生成 p12格式时所输入的密钥。</p>
-<p>Apache-tomcat 9使用 JSSE 配置 SSL <a href="https://tomcat.apache.org/tomcat-7.0-doc/ssl-howto.html#Configuration" target="_blank" rel="external">参考</a></p>
-<p>最终的配置为</p>
-<p><pre class="lang:sh decode:true ">&lt;Connector address=”127.0.0.1”<br> protocol=”org.apache.coyote.http11.Http11NioProtocol”<br> port=”8443” maxThreads=”200”<br> scheme=”https” secure=”true” SSLEnabled=”true”<br> keystoreFile=”/opt/apache-tomcat-7/ssl/tomcat.keystore”<br> keystorePass=”123456”<br> clientAuth=”false” sslProtocol=”TLS”/&gt;</pre><br>&nbsp;</p>
-
-          
+          使用 JSSE 配置 SSL
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2016/06/27/apache-tomcat-e4-bd-bf-e7-94-a8-jsse-e9-85-8d-e7-bd-ae-ssl/">
+              阅读全文 &raquo;
+            </a>
+          </div>
         
       
     </div>
@@ -507,28 +496,12 @@
 
       
         
-          
-            <p>&nbsp;</p>
-<p>Nginx 是一个高性能，支持高并发的，轻量级的 Web Sever。 Nginx 采用模块化的架构， 可以通过开发 Nginx 的扩展模块 ， 将 Nginx 打造成一个全能的 Web Sever， 即将一些功能在前端 Nginx 反向代理层解决，比如登录校验、js 合并等。</p>
-<h5 id="1-Nginx-进程模型"><a href="#1-Nginx-进程模型" class="headerlink" title="1. Nginx 进程模型"></a><strong>1. Nginx 进程模型</strong></h5><p><img src="/uploads/2016/06/0_1330494922Q49n.gif" alt="0_1330494922Q49n"></p>
-<p>Nginx 采用多进程模型，单 Master — 多 Worker，由 Master 处理外部信号、配置文件的读取及 Worker 的初始化，Worker 进程采用 单线程、非阻塞的事件模型（Event Loop，事件循环）来实现端口的监听及客户端请求的处理和响应，同时Worker还要处理来自 Master 的信号。</p>
-<p>表面上看，当 Nginx 处理一个来自客户端的请求时，先根据请求头的host、ip和 port 来确定由哪个 server 处理，确定了 server 之后，再 根据请求的 uri 找到对应的 location，这个请求就由这个location 处理。实际 Nginx 将一个请求的处理划分为若干个不同阶段 （phase），这些阶段按照前后顺序依次执行。</p>
-<pre class="lang:php decode:true">NGX_HTTP_POST_READ_PHASE,     //0读取请求phase        
-NGX_HTTP_SERVER_REWRITE_PHASE,//1这个阶段主要是处理全局的(server block)的rewrite  
-NGX_HTTP_FIND_CONFIG_PHASE,   //2这个阶段主要是通过uri来查找对应的location，然后根据loc_conf设置r的相应变量    
-NGX_HTTP_REWRITE_PHASE,       //3这个主要处理location的rewrite  
-NGX_HTTP_POST_REWRITE_PHASE,  //4postrewrite，这个主要是进行一些校验以及收尾工作，以便于交给后面的模块。  
-NGX_HTTP_PREACCESS_PHASE,     //5比如流控这种类型的access就放在这个phase，也就是说它主要是进行一些比较粗粒度的access。  
-NGX_HTTP_ACCESS_PHASE,        //6这个比如存取控制，权限验证就放在这个phase，一般来说处理动作是交给下面的模块做的.这个主要是做一些细粒度的access     
-NGX_HTTP_POST_ACCESS_PHASE,   //7一般来说当上面的access模块得到access_code之后就会由这个模块根据access_code来进行操作  
-NGX_HTTP_TRY_FILES_PHASE,     //8try_file模块，就是对应配置文件中的try_files指令，可接收多个路径作为参数，当前一个路径的资源无法找到，则自动查找下一个路径  
-NGX_HTTP_CONTENT_PHASE,       //9内容处理模块  
-NGX_HTTP_LOG_PHASE            //10log模块</pre>
-
-<h5 id="2-ngx-lua"><a href="#2-ngx-lua" class="headerlink" title="2. ngx_lua"></a>2. ngx_lua</h5><p>&nbsp;</p>
-<p>waiting for update……</p>
-
-          
+          Nginx 是一个高性能，支持高并发的，轻量级的 Web Sever。 Nginx 采用模块化的架构， 可以通过开发 Nginx 的扩展模块 ， 将 Nginx 打造成一个全能的 Web Sever， 即将一些功能在前端 Nginx 反向代理层解决，比如登录校验、js 合并等。
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2016/06/10/ngx-lua/">
+              阅读全文 &raquo;
+            </a>
+          </div>
         
       
     </div>
@@ -619,16 +592,12 @@ NGX_HTTP_LOG_PHASE            //10log模块</pre>
 
       
         
-          
-            <p>&nbsp;</p>
-<p><a href="https://msdn.microsoft.com/en-us/library/aa921042.aspx" target="_blank" rel="external">IPv6 </a>defines at least three<a href="https://msdn.microsoft.com/en-us/library/aa917150.aspx" target="_blank" rel="external"> reachability scopes</a> for addresses:</p>
-<ol>
-<li>Globally addressable. This is an IPv6 address given to you by your ISP. It is available to use on the public Internet.</li>
-<li>Link-local. This is similar to the 169.254.x.x range. It is an address that a computer assigns itself in order to facilitate local communications. These addresses don’t get routed around on the public Internet because they’re not globally unique. such as fe80::/64</li>
-<li>Node-local. This is an address that identifies the local interface, similar to 127.0.0.1. Such as, this is the address ::1.<br>&nbsp;</li>
-</ol>
-
-          
+          IPv6 local link address
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2016/06/08/ipv6-link-local-address/">
+              阅读全文 &raquo;
+            </a>
+          </div>
         
       
     </div>
@@ -719,26 +688,12 @@ NGX_HTTP_LOG_PHASE            //10log模块</pre>
 
       
         
-          
-            <p>&nbsp;</p>
-<p><strong>目标：</strong>使用 Nginx 作为反向代理服务器，重定向 80/443 port 的数据到 Apache Tomcat（Listening 127.0.0.1:8080），以提高 web server 的响应速度和性能，提升用户的访问体验。</p>
-<p><img src="/uploads/2016/06/tt.png" alt="tt"></p>
-<h5 id="一、-Nginx-配置"><a href="#一、-Nginx-配置" class="headerlink" title="一、 Nginx 配置"></a>一、 Nginx 配置</h5><p>1.将Nginx配置成反向代理服务器，参考 <a href="http://www.mkyong.com/nginx/nginx-apache-tomcat-configuration-example/" target="_blank" rel="external">example</a></p>
-<p><pre class="lang:python decode:true ">server {<br>        …..<br>    location / {<br>        proxy_set_header X-Forwarded-Host $host;<br>        proxy_set_header X-Forwarded-Server $host;<br>        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;<br>        proxy_pass <a href="http://127.0.0.1:8080/" target="_blank" rel="external">http://127.0.0.1:8080/</a>;<br>    }<br>        …..<br>}</pre><br>2.添加缓存 <a href="https://www.nginx.com/blog/nginx-caching-guide/" target="_blank" rel="external">cache</a></p>
-<p><pre class="lang:sh decode:true">proxy_cache_path /opt/nginx/cache levels=1:2 keys_zone=my_cache:10m max_size=10g inactive=60m use_temp_path=off;<br>server {<br>    ….</pre></p>
-<pre><code>proxy_cache my_cache;
-proxy_cache_valid  200 302  60m;
-proxy_cache_valid  404      1m;
-client_max_body_size 20M;
-
-    .....
-</code></pre><p>}<br>inactive 表示 cache 60 分钟后失效。</p>
-<p>http status 为 200 和 302 时，cache</p>
-<p>3.最终配置 <a href="http://dl.coolstar-pc.top/Server-conifg/note/tomcat-reverse-proxy" target="_blank" rel="external">demo</a></p>
-<h5 id="二、Apache-Tomcat-配置"><a href="#二、Apache-Tomcat-配置" class="headerlink" title="二、Apache Tomcat 配置"></a>二、Apache Tomcat 配置</h5><p>修改 <a href="http://dl.coolstar-pc.top/Server-conifg/note/server.xml" target="_blank" rel="external">server.xml</a>, 使用环路地址 localhost，最大程度保证安全性。</p>
-<p>&nbsp;</p>
-
-          
+          使用 Nginx 作为反向代理服务器，重定向 80/443 port 的数据到 Apache Tomcat（Listening 127.0.0.1:8080）
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2016/06/07/nginx-apache-tomcat-configuration/">
+              阅读全文 &raquo;
+            </a>
+          </div>
         
       
     </div>
@@ -829,34 +784,12 @@ client_max_body_size 20M;
 
       
         
-          
-            <p><strong>MySQL 5.7 主要特性：</strong></p>
-<ul>
-<li>更好的性能：对于多核CPU、固态硬盘，有着更好的优化</li>
-<li>更好的InnoDB存储引擎</li>
-<li>更为健壮的复制功能</li>
-<li>更好的优化器</li>
-<li>原生JSON类型的支持</li>
-<li>更好的地理信息服务支持：支持GeoJSON，GeoHash特性</li>
-<li>新增sys库：<br>新版 mysql 5.7.12 编译、安装以及配置注意事项：</li>
-</ul>
-<p>1. 编译</p>
-<p><pre class="lang:sh decode:true">cmake -DCMAKE_INSTALL_PREFIX=/opt/mysql -DMYSQL_DATADIR=/opt/mysql-data -DSYSCONFDIR=/opt/mysql/etc -DEXTRA_CHARSETS=all -DDEFAULT_CHARSET=utf8 -DDEFAULT_COLLATION=utf8_general_ci -DWITH_BOOST=boost_1_59_0 .</pre><br><a href="https://dev.mysql.com/doc/refman/5.7/en/source-configuration-options.html" target="_blank" rel="external">选项参数</a>。datadir 的路径不要放在安装目录下，应该单独分开。否则，启动 mysqld 时，会报无法更新 pid 的错误。需要事先下载 boost 放在编译目录下。</p>
-<p>2. 安装</p>
-<p>备份数据库，卸载所有旧版本的 mysqld 及其依赖包。在 /opt/mysql/etc 下创建 my.cnf, 配置如下：<br>// my.cnf</p>
-<p><pre class="lang:sh decode:true"><br>[mysqld]<br>basedir = /opt/mysql<br>datadir = /opt/mysql-data<br>user = mysql<br>bind-address = 127.0.0.1<br>port = 3306<br>symbolic-links = 0<br>socket = /var/run/mysqld/mysqld.sock // 参考php配置，php-fpm 连接 mysqld<br>pid-file = /opt/mysql-data/mysql.pid<br>[client]<br>socket = /var/run/mysqld/mysqld.sock<br></pre><br>添加环境变量</p>
-<p><pre class="lang:sh decode:true ">export $PATH:/opt/mysql/bin<br></pre><br><a href="https://dev.mysql.com/doc/refman/5.7/en/data-directory-initialization-mysqld.html" target="_blank" rel="external">初始化</a> db</p>
-<p><pre class="lang:sh decode:true">mysqld –initialize –user=mysql</pre><br>3. 配置</p>
-<p>copy 自启动脚本到 /etc/init.d</p>
-<p><pre class="lang:sh decode:true ">cp /opt/mysql/support-files/mysql.server /etc/init.d<br>service mysql.server restart<br></pre><br>4. 安全优化</p>
-<p>运行安全优化脚本</p>
-<p><pre class="lang:sh decode:true ">mysql_secure_installation</pre><br>删除匿名用户、test数据库、禁用远程登录等。</p>
-<p><pre class="lang:sh decode:true ">mysql -uroot -p</pre><br>登录mysqld，修改root密码。 初始密码，在初始化 db 时，有显示，直接copy and past 即可。</p>
-<p><pre class="lang:sh decode:true">alter user root@localhost identified by ‘new passwd’</pre><br>5. 还原数据库</p>
-<p>还原数据库时，要注意，5.7以上版的mysql的user表里已经没有 password 字段，改用 authentication_string</p>
-<p>&nbsp;</p>
-
-          
+          MySQL 5.7 主要特性及其配置
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2016/05/27/mysql-5-7-12-compile-and-install/">
+              阅读全文 &raquo;
+            </a>
+          </div>
         
       
     </div>
@@ -947,33 +880,12 @@ client_max_body_size 20M;
 
       
         
-          
-            <h5 id="一、OpenSSL"><a href="#一、OpenSSL" class="headerlink" title="一、OpenSSL"></a>一、OpenSSL</h5><p><a href="https://en.wikipedia.org/wiki/OpenSSL" target="_blank" rel="external">OpenSSL</a> is a free and open-source cryptographic library that provides several command-line tools for handling digital certificates.</p>
-<p>OpenSSL 是一种加密工具，包含开源的 SSL/TLS 协议实现，command-line tools, 以及各种各样的加密函数库，这些加密库函数可以被开发者调用，开发各种基于 UI 的加密工具。</p>
-<h5 id="二、CA"><a href="#二、CA" class="headerlink" title="二、CA"></a>二、CA</h5><p><a href="https://en.wikipedia.org/wiki/Certificate_authority" target="_blank" rel="external">CA</a> (certificate authority) is an entity that signs digital certificates. Many websites need to let their customers know that the connection is secure, so they pay an internationally trusted CA (eg, VeriSign, DigiCert) to sign a certificate for their domain.</p>
-<p>CA 可以看作是一种信任授权机构。在加密通信环境中或匿名通信环境中，访问者与被访问者之间，最初是相互不信任的，他们需要一个可信的中间人，作为媒介，以达到相互信任的目的。</p>
-<p>一般而言，有 2 种类型的 CA， 即 Root CA （根 CA）和 Intermediate CA （中间 CA）. 通常情况下，为了最大程度地保护 Root CA 的安全性，Root CA 不直接签发用户证书（且处于离网状态），而由授权的中间 CA 来签发用户证书，从而避免被恶意攻击篡改。</p>
-<p>1. Root CA 扮演的角色</p>
-<p>Root CA 属于自签名的证书，内置于浏览器里，随浏览器分发下去。它不需要第三方认可的，只要浏览器开发者把它捆绑到浏览器里，它就被直接认可。</p>
-<p><img src="/uploads/2016/05/Selection_003.png" alt="Selection_003"></p>
-<ol>
-<li>Intermediate CA</li>
-</ol>
-<p>中间 CA 直接参与用户证书签发。用户通过生成 CSR （证书签名请求）递交 签名请求，然后由中间 CA 签发。</p>
-<p>3. 证书链及其验证过程</p>
-<p>由于 Root CA 不直接参与签发，所以整个证书就会出现分级授权，这种分级，最终形成一个可靠的证书信任链。每一级证书包含公钥、证书发行者名称，以及证书的签名（这些内容都是明文的）。</p>
-<p><img src="/uploads/2016/05/Chain_of_trust.svg_.png" alt="Chain_of_trust.svg"></p>
-<p>客户端浏览器验证整个证书链的过程，大致可以描述为：</p>
-<ul>
-<li>客户端浏览器通过 SSL 握手协议，从服务器上拿到整个证书链。</li>
-<li>浏览器内置的 Root CA 利用其公钥，解密其用私钥所签发的中间CA，然后比对信息是否一致 ，从而验证中间 CA 的合法性。</li>
-<li>若中间 CA 合法，则中间 CA 利用其公钥，解密其用私钥所签发的用户证书，然后比对信息是否一致，以验证用户证书的合法性。否则，直接中断验证过程，并告知浏览者，签名无效。</li>
-</ul>
-<h5 id="三、创建-Root-CA"><a href="#三、创建-Root-CA" class="headerlink" title="三、创建 Root CA"></a>三、创建 Root CA</h5><p>&nbsp;</p>
-<h5 id="四、创建证书签名请求-CSR"><a href="#四、创建证书签名请求-CSR" class="headerlink" title="四、创建证书签名请求 CSR"></a>四、创建证书签名请求 CSR</h5><p>&nbsp;</p>
-<h5 id="五、签发证书"><a href="#五、签发证书" class="headerlink" title="五、签发证书"></a>五、签发证书</h5><h5 id="六、参考文献"><a href="#六、参考文献" class="headerlink" title="六、参考文献"></a>六、参考文献</h5><p><pre class="lang:sh decode:true "><a href="https://jamielinux.com/docs/openssl-certificate-authority/introduction.html" target="_blank" rel="external">https://jamielinux.com/docs/openssl-certificate-authority/introduction.html</a></pre><br>&nbsp;</p>
-
-          
+          OpenSSL 是一种加密工具，包含开源的 SSL/TLS 协议实现，command-line tools, 以及各种各样的加密函数库，这些加密库函数可以被开发者调用，开发各种基于 UI 的加密工具。
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2016/05/25/openssl-certificate-authority/">
+              阅读全文 &raquo;
+            </a>
+          </div>
         
       
     </div>
@@ -1064,41 +976,12 @@ client_max_body_size 20M;
 
       
         
-          
-            <p>&nbsp;</p>
-<p><a href="http://drops.wooyun.org/papers/15430" target="_blank" rel="external">CVE-2016-3081</a>, 官方为S2-032漏洞。在开启动态方法调用 <a href="https://struts.apache.org/docs/action-configuration.html#ActionConfiguration-DynamicMethodInvocation" target="_blank" rel="external">DMI</a> （Dynamic Method Invocation）的情况下，会被攻击者实现远程代码执行攻击。受影响的版本有2.3.18-2.3.28(除 2.3.20.2 and 2.3.24.2)。</p>
-<h5 id="一、漏洞触发条件"><a href="#一、漏洞触发条件" class="headerlink" title="一、漏洞触发条件"></a>一、漏洞触发条件</h5><p>1. struts.xml里开启DMI</p>
-<pre class="lang:xhtml decode:true ">&lt;constant name="struts.enable.DynamicMethodInvocation" value="true"/&gt;</pre>
-2\. 实现DMI的action类（.java）
-<pre class="lang:java decode:true ">package cn.jsou.action;
-
-import com.opensymphony.xwork2.Action;
-import com.opensymphony.xwork2.ActionSupport;
-import com.opensymphony.xwork2.ModelDriven;
-
-public class HelloWorldAction extends ActionSupport{  
-    private String message;  
-
-    public String execute() throws Exception{  
-        this.message = "我的第一个struts2应用";  
-        return "success";  
-    }  
-
-    public String other() throws Exception{  
-        this.message = "第二个方法";  
-        return "success";  
-    }  
-}</pre>
-假设访问上面action的TargetURI路径为：
-<pre class="lang:java decode:true "> /struts/test/helloworld.action</pre>
-那么要访问action的other() 方法，我们可以这样调用，action类前加感叹号：
-<pre class="lang:js decode:true ">/struts/test/helloworld!other.action</pre>
-
-<h5 id="二、测试"><a href="#二、测试" class="headerlink" title="二、测试"></a>二、测试</h5><p>直接使用源码包里的struts-2.3.28/apps/struts2-showcase.war作为测试对象，部署到Apache-tomcat上。使用github上公开的漏洞源码<strong><a href="https://github.com/rapid7/metasploit-framework/blob/master/modules/exploits/linux/http/struts_dmi_exec.rb" target="_blank" rel="external">struts_dmi_exec</a>。</strong>在Kali Linux2.0 上的测试结果：</p>
-<p><img src="/uploads/2016/05/Selection_001.png" alt="Selection_001"></p>
-<h5 id="三、demo"><a href="#三、demo" class="headerlink" title="三、demo"></a><em>三、demo</em></h5><p><a href="http://dl.coolstar-pc.top/Server-conifg/note/%20Apache%20Struts2%20S2-032%20CVE-2016-3081%20DMI%20RCE%20Metasploit%20Demo.mp4" target="_blank" rel="external">here</a>.</p>
-
-          
+          CVE-2016-3081
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2016/05/25/struts2-exploit-cve-2016-3081/">
+              阅读全文 &raquo;
+            </a>
+          </div>
         
       
     </div>
@@ -1189,28 +1072,12 @@ public class HelloWorldAction extends ActionSupport{
 
       
         
-          
-            <p>##### </p>
-<h5 id="一、FastCGI"><a href="#一、FastCGI" class="headerlink" title="一、FastCGI"></a>一、FastCGI</h5><p>FastCGI (Common Gateway Interface), 是 Web Server 与 动态脚本 script 之间的通信接口。更多有关FastCGI的信息 <a href="http://php.net/manual/en/install.fpm.php" target="_blank" rel="external">PHP manual</a>.</p>
-<h5 id="二、原理"><a href="#二、原理" class="headerlink" title="二、原理"></a>二、原理</h5><p>Web Server, 如Nginx、Apache，本身不会对外部 script 直接调用或者解析，所有的 script（如PHP）必须通过FastCGI接口来调用。FastCGI 接口通过 socket 或者daemon（绑定一个特定的端口9000）与 Web Server 交互。</p>
-<p><img src="/uploads/2016/05/140224291.png" alt="140224291"></p>
-<p>图 1 Nginx 与 FastCGI 通信</p>
-<h5 id="三、配置"><a href="#三、配置" class="headerlink" title="三、配置"></a>三、配置</h5><p>1.下载最新版的 <a href="http://php.net/downloads.php" target="_blank" rel="external">php</a></p>
-<pre class="lang:sh decode:true">wget -c http://am1.php.net/distributions/php-7.0.6.tar.gz</pre>
-
-<p>2.编译</p>
-<p>由于 <a href="https://github.com/php-build/php-build/issues/348" target="_blank" rel="external">php7</a>，已经彻底放弃了–with-myql 选项，改用<a href="https://dev.mysql.com/downloads/connector/php-mysqlnd/" target="_blank" rel="external"> mysqlnd</a>，如果直接用此选择，而不选择 mysqli 和 pdo，会导致连接mysql出错,因为 php script 找不到连接mysql 的驱动。添加 –enable-fpm 选项，使能 FastCGI.</p>
-<p><pre class="lang:sh decode:true">./configure –prefix=/opt/php7 \<br>–enable-fpm \<br>–enable-mysqlnd \<br>–with-mysqli=mysqlnd \<br>–with-pdo-mysql=mysqlnd \<br>–with-mysql-sock=/var/run/mysqld/mysqld.sock \<br>–enable-mbstring \<br>–enable-sockets</pre><br>3. 更改配置文件</p>
-<p>采用 socket 方式连接 webserver</p>
-<p><pre class="lang:sh decode:true">vim /opt/php7/etc/php-fpm.d/www.conf</pre><br>修改以下参数</p>
-<p><pre class="lang:sh decode:true ">user = coolstar-pc //与nginx配置的user相同<br>group = coolstar-pc<br>;listen = 127.0.0.1:9000<br>listen = /opt/php7/var/run/php7-fpm.sock<br>listen.owner = coolstar-pc<br>listen.group = coolstar-pc</pre><br>copy 启动脚本到 /etc/init.d</p>
-<p><pre class="lang:sh decode:true ">cp ~/php-7.0.6/sapi/fpm/init.d.php-fpm /etc/init.d/php-fpm<br>chmod 777 /etc/init.d/php-fpm<br>service php-fpm restart</pre><br>4.编辑 nginx 站点配置文件，添加对 Fast CGI 的支持</p>
-<p>add 下面一行数据到站点 <a href="http://dl.coolstar-pc.top/Server-conifg/note/blog" target="_blank" rel="external">配置文件</a></p>
-<p><pre class="lang:sh decode:true ">fastcgi_pass unix:/opt/php7/var/run/php7-fpm.sock;</pre><br>&nbsp;</p>
-<p>&nbsp;</p>
-<p>&nbsp;</p>
-
-          
+          在 Nginx 上配置 FastCGI，使其支持 PHP 动态页面
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2016/05/24/configure-php-behind-nginx-with-fastcgi/">
+              阅读全文 &raquo;
+            </a>
+          </div>
         
       
     </div>
@@ -1301,18 +1168,12 @@ public class HelloWorldAction extends ActionSupport{
 
       
         
-          
-            <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="external">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="external">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="external">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="external">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo new <span class="string">"My New Post"</span></div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="external">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo server</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="external">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo generate</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="external">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo deploy</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="external">Deployment</a></p>
-
-          
+          Welcome Info
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2016/01/27/hello-world/">
+              阅读全文 &raquo;
+            </a>
+          </div>
         
       
     </div>
@@ -1375,11 +1236,11 @@ public class HelloWorldAction extends ActionSupport{
                src="/uploads/avatar1.png"
                alt="coolstar" />
           <p class="site-author-name" itemprop="name">coolstar</p>
-          <p class="site-description motion-element" itemprop="description"></p>
+          <p class="site-description motion-element" itemprop="description">改变世界的是这么一群人，他们寻找梦想中的乐园，当他们找不到时，便亲手创造了她...，爱开源、喜欢node.js、前端js、oracle数据库、分布式技术...</p>
         </div>
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
-            <a href="/archives">
+            <a href="/">
               <span class="site-state-item-count">10</span>
               <span class="site-state-item-name">日志</span>
             </a>

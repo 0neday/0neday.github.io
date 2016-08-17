@@ -84,22 +84,16 @@
 
 
 
-<meta name="description" content="&amp;nbsp;
-SSL 证书一般是由 OpenSSL 工具生成 x509 证书（标准的 PKI 管理工具），适用于大部分的 web server，而基于 java 的 web 应用程序（Tomcat），默认情况下，使用 jks 类型证书。因此，在使用 JSSE 配置 SSL 之前，需要将 x509 类型的证书转换成 jks 类型的证书。
-思路：先利用 openssl 将 crt 格式的证书转换为 p">
+<meta name="description" content="使用 JSSE 配置 SSL">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Apache Tomcat 使用 JSSE 配置 SSL">
 <meta property="og:url" content="http://coolstar-pc.top/2016/06/27/apache-tomcat-e4-bd-bf-e7-94-a8-jsse-e9-85-8d-e7-bd-ae-ssl/index.html">
-<meta property="og:site_name" content="Coolstar's Note">
-<meta property="og:description" content="&amp;nbsp;
-SSL 证书一般是由 OpenSSL 工具生成 x509 证书（标准的 PKI 管理工具），适用于大部分的 web server，而基于 java 的 web 应用程序（Tomcat），默认情况下，使用 jks 类型证书。因此，在使用 JSSE 配置 SSL 之前，需要将 x509 类型的证书转换成 jks 类型的证书。
-思路：先利用 openssl 将 crt 格式的证书转换为 p">
-<meta property="og:updated_time" content="2016-08-17T11:19:27.509Z">
+<meta property="og:site_name" content="Coolstar's 技术博客">
+<meta property="og:description" content="使用 JSSE 配置 SSL">
+<meta property="og:updated_time" content="2016-08-17T11:30:56.724Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Apache Tomcat 使用 JSSE 配置 SSL">
-<meta name="twitter:description" content="&amp;nbsp;
-SSL 证书一般是由 OpenSSL 工具生成 x509 证书（标准的 PKI 管理工具），适用于大部分的 web server，而基于 java 的 web 应用程序（Tomcat），默认情况下，使用 jks 类型证书。因此，在使用 JSSE 配置 SSL 之前，需要将 x509 类型的证书转换成 jks 类型的证书。
-思路：先利用 openssl 将 crt 格式的证书转换为 p">
+<meta name="twitter:description" content="使用 JSSE 配置 SSL">
 
 
 
@@ -107,7 +101,7 @@ SSL 证书一般是由 OpenSSL 工具生成 x509 证书（标准的 PKI 管理�
   var NexT = window.NexT || {};
   var CONFIG = {
     scheme: 'Mist',
-    sidebar: {"position":"left","display":"post"},
+    sidebar: {"position":"left","display":"always"},
     fancybox: true,
     motion: true,
     duoshuo: {
@@ -122,7 +116,7 @@ SSL 证书一般是由 OpenSSL 工具生成 x509 证书（标准的 PKI 管理�
 
   <link rel="canonical" href="http://coolstar-pc.top/2016/06/27/apache-tomcat-e4-bd-bf-e7-94-a8-jsse-e9-85-8d-e7-bd-ae-ssl/"/>
 
-  <title> Apache Tomcat 使用 JSSE 配置 SSL | Coolstar's Note </title>
+  <title> Apache Tomcat 使用 JSSE 配置 SSL | Coolstar's 技术博客 </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -153,7 +147,7 @@ SSL 证书一般是由 OpenSSL 工具生成 x509 证书（标准的 PKI 管理�
   <div class="custom-logo-site-title">
     <a href="/"  class="brand" rel="start">
       <span class="logo-line-before"><i></i></span>
-      <span class="site-title">Coolstar's Note</span>
+      <span class="site-title">Coolstar's 技术博客</span>
       <span class="logo-line-after"><i></i></span>
     </a>
   </div>
@@ -195,12 +189,12 @@ SSL 证书一般是由 OpenSSL 工具生成 x509 证书（标准的 PKI 管理�
         </li>
       
         
-        <li class="menu-item menu-item-archives">
-          <a href="/archives" rel="section">
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
             
-            归档
+            标签
           </a>
         </li>
       
@@ -415,11 +409,11 @@ SSL 证书一般是由 OpenSSL 工具生成 x509 证书（标准的 PKI 管理�
                src="/uploads/avatar1.png"
                alt="coolstar" />
           <p class="site-author-name" itemprop="name">coolstar</p>
-          <p class="site-description motion-element" itemprop="description"></p>
+          <p class="site-description motion-element" itemprop="description">改变世界的是这么一群人，他们寻找梦想中的乐园，当他们找不到时，便亲手创造了她...，爱开源、喜欢node.js、前端js、oracle数据库、分布式技术...</p>
         </div>
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
-            <a href="/archives">
+            <a href="/">
               <span class="site-state-item-count">10</span>
               <span class="site-state-item-name">日志</span>
             </a>
