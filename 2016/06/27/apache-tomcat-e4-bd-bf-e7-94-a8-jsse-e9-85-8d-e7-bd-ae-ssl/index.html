@@ -94,7 +94,7 @@ SSL 证书一般是由 OpenSSL 工具生成 x509 证书（标准的 PKI 管理�
 <meta property="og:description" content="&amp;nbsp;
 SSL 证书一般是由 OpenSSL 工具生成 x509 证书（标准的 PKI 管理工具），适用于大部分的 web server，而基于 java 的 web 应用程序（Tomcat），默认情况下，使用 jks 类型证书。因此，在使用 JSSE 配置 SSL 之前，需要将 x509 类型的证书转换成 jks 类型的证书。
 思路：先利用 openssl 将 crt 格式的证书转换为 p">
-<meta property="og:updated_time" content="2016-08-17T10:49:29.814Z">
+<meta property="og:updated_time" content="2016-08-17T11:19:27.509Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Apache Tomcat 使用 JSSE 配置 SSL">
 <meta name="twitter:description" content="&amp;nbsp;
@@ -307,11 +307,13 @@ SSL 证书一般是由 OpenSSL 工具生成 x509 证书（标准的 PKI 管理�
       
         <p>&nbsp;</p>
 <p>SSL 证书一般是由 OpenSSL 工具生成 <a href="https://en.wikipedia.org/wiki/X.509" target="_blank" rel="external">x509</a> 证书（标准的<a href="https://en.wikipedia.org/wiki/Public_key_infrastructure" target="_blank" rel="external"> PKI</a> 管理工具），适用于大部分的 web server，而基于 java 的 web 应用程序（Tomcat），默认情况下，使用 <a href="https://en.wikipedia.org/wiki/Keystore" target="_blank" rel="external">jks</a> 类型证书。因此，在使用 <a href="https://tomcat.apache.org/tomcat-7.0-doc/ssl-howto.html#Configuration" target="_blank" rel="external">JSSE</a> 配置 SSL 之前，需要将 x509 类型的证书转换成 jks 类型的证书。</p>
-<p><strong>思路：</strong>先利用 openssl 将 crt 格式的证书转换为 <a href="https://en.wikipedia.org/wiki/PKCS_12" target="_blank" rel="external">pkcs 12</a>，再使用 keytool 将pkcs 12 转换成 jks。</p>
-<p><pre class="lang:sh decode:true">第一步，从key和crt生成pkcs12格式</pre></p>
-<p>openssl pkcs12 -export -in mycert.crt -inkey mykey.key<br>               -out mycert.p12 -name tomcat<br>               -CAfile myCA.crt -caname root -chain</p>
+<p><strong>思路：</strong>先利用 openssl 将 crt 格式的证书转换为 <a href="https://en.wikipedia.org/wiki/PKCS_12" target="_blank" rel="external">pkcs 12</a>，再使用 keytool 将pkcs 12 转换成 jks。<br>第一步，从key和crt生成pkcs12格式 </p>
+<pre class="lang:sh decode:true "> openssl pkcs12 -export -in mycert.crt -inkey mykey.key 
+               -out mycert.p12 -name tomcat 
+               -CAfile myCA.crt -caname root -chain </pre>
+
 <p>第二步 生成tomcat需要的keystore</p>
-<p>keytool -importkeystore -v  -srckeystore mycert.p12<br>        -srcstoretype pkcs12 -srcstorepass 123456<br>        -destkeystore tomcat.keystore -deststoretype jks<br>        -deststorepass 123456<br>其中，123456 为第一步生成 p12格式时所输入的密钥。</p>
+<p><pre class="lang:sh decode:true "> keytool -importkeystore -v  -srckeystore mycert.p12<br>        -srcstoretype pkcs12 -srcstorepass 123456<br>        -destkeystore tomcat.keystore -deststoretype jks<br>        -deststorepass 123456</pre><br>其中，123456 为第一步生成 p12格式时所输入的密钥。</p>
 <p>Apache-tomcat 9使用 JSSE 配置 SSL <a href="https://tomcat.apache.org/tomcat-7.0-doc/ssl-howto.html#Configuration" target="_blank" rel="external">参考</a></p>
 <p>最终的配置为</p>
 <p><pre class="lang:sh decode:true ">&lt;Connector address=”127.0.0.1”<br> protocol=”org.apache.coyote.http11.Http11NioProtocol”<br> port=”8443” maxThreads=”200”<br> scheme=”https” secure=”true” SSLEnabled=”true”<br> keystoreFile=”/opt/apache-tomcat-7/ssl/tomcat.keystore”<br> keystorePass=”123456”<br> clientAuth=”false” sslProtocol=”TLS”/&gt;</pre><br>&nbsp;</p>

@@ -112,7 +112,7 @@ cmake -DCMAKE_INSTALL_PREFIX=/opt/my">
 
 1. 编译
 cmake -DCMAKE_INSTALL_PREFIX=/opt/my">
-<meta property="og:updated_time" content="2016-08-17T10:49:18.186Z">
+<meta property="og:updated_time" content="2016-08-17T11:21:34.218Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="MySQL 5.7.12 Compile and Install">
 <meta name="twitter:description" content="MySQL 5.7 主要特性：
@@ -345,10 +345,8 @@ cmake -DCMAKE_INSTALL_PREFIX=/opt/my">
 <p>1. 编译</p>
 <p><pre class="lang:sh decode:true">cmake -DCMAKE_INSTALL_PREFIX=/opt/mysql -DMYSQL_DATADIR=/opt/mysql-data -DSYSCONFDIR=/opt/mysql/etc -DEXTRA_CHARSETS=all -DDEFAULT_CHARSET=utf8 -DDEFAULT_COLLATION=utf8_general_ci -DWITH_BOOST=boost_1_59_0 .</pre><br><a href="https://dev.mysql.com/doc/refman/5.7/en/source-configuration-options.html" target="_blank" rel="external">选项参数</a>。datadir 的路径不要放在安装目录下，应该单独分开。否则，启动 mysqld 时，会报无法更新 pid 的错误。需要事先下载 boost 放在编译目录下。</p>
 <p>2. 安装</p>
-<p>备份数据库，卸载所有旧版本的 mysqld 及其依赖包。在 /opt/mysql/etc 下创建 my.cnf, 配置如下：</p>
-<p><pre class="lang:sh decode:true">// my.cnf</pre></p>
-<p>[mysqld]<br>basedir = /opt/mysql<br>datadir = /opt/mysql-data<br>user = mysql<br>bind-address = 127.0.0.1<br>port = 3306<br>symbolic-links = 0<br>socket = /var/run/mysqld/mysqld.sock // 参考php配置，php-fpm 连接 mysqld<br>pid-file = /opt/mysql-data/mysql.pid</p>
-<p>[client]<br>socket = /var/run/mysqld/mysqld.sock<br>添加环境变量</p>
+<p>备份数据库，卸载所有旧版本的 mysqld 及其依赖包。在 /opt/mysql/etc 下创建 my.cnf, 配置如下：<br>// my.cnf</p>
+<p><pre class="lang:sh decode:true"><br>[mysqld]<br>basedir = /opt/mysql<br>datadir = /opt/mysql-data<br>user = mysql<br>bind-address = 127.0.0.1<br>port = 3306<br>symbolic-links = 0<br>socket = /var/run/mysqld/mysqld.sock // 参考php配置，php-fpm 连接 mysqld<br>pid-file = /opt/mysql-data/mysql.pid<br>[client]<br>socket = /var/run/mysqld/mysqld.sock<br></pre><br>添加环境变量</p>
 <p><pre class="lang:sh decode:true ">export $PATH:/opt/mysql/bin<br></pre><br><a href="https://dev.mysql.com/doc/refman/5.7/en/data-directory-initialization-mysqld.html" target="_blank" rel="external">初始化</a> db</p>
 <p><pre class="lang:sh decode:true">mysqld –initialize –user=mysql</pre><br>3. 配置</p>
 <p>copy 自启动脚本到 /etc/init.d</p>
