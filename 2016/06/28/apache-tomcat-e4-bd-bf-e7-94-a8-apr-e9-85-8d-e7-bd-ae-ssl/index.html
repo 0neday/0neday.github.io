@@ -90,7 +90,7 @@
 <meta property="og:url" content="http://coolstar-pc.top/2016/06/28/apache-tomcat-e4-bd-bf-e7-94-a8-apr-e9-85-8d-e7-bd-ae-ssl/index.html">
 <meta property="og:site_name" content="Coolstar's 技术博客">
 <meta property="og:description" content="上次，我们讨论了在 Apache Tomcat 上，使用 JSSE 配置 SSL。可以看出，使用 keytool 将 x509 类型的证书转换成 java 应用程序所支持的 jks 比较繁琐（不仅需要导入 user 证书，还需要导入中间 CA ），另外，不使用 APR ，在一定程度上，削弱了 Tomcat 本身具有的性能。">
-<meta property="og:updated_time" content="2016-08-17T12:25:18.003Z">
+<meta property="og:updated_time" content="2016-08-17T13:16:49.886Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Apache Tomcat 使用 APR 配置 SSL">
 <meta name="twitter:description" content="上次，我们讨论了在 Apache Tomcat 上，使用 JSSE 配置 SSL。可以看出，使用 keytool 将 x509 类型的证书转换成 java 应用程序所支持的 jks 比较繁琐（不仅需要导入 user 证书，还需要导入中间 CA ），另外，不使用 APR ，在一定程度上，削弱了 Tomcat 本身具有的性能。">
@@ -305,7 +305,7 @@
 <p><pre class="lang:sh decode:true">cd $CATALINA_HOME/bin/tomcat-native-1.1.23-src/jni/native<br>./configure  –with-apr=/usr/local/apr<br>             –prefix=/opt/apache-tomcat-7</pre><br>2. 添加环境变量 LD_LIBRARY_PATH</p>
 <p>编辑</p>
 <p><pre class="lang:sh decode:true ">$CATALINA_HOME／bin</pre><br>下的setenv.sh文件，添加以下2行</p>
-<p><pre class="lang:sh decode:true ">LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$CATALINA_HOME/lib<br>export LD_LIBRARY_PATH</pre><br>3. 编辑 server.xml</p>
+<p><pre class="lang:sh decode:true ">LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$CATALINA_HOME/lib<br>export LD_LIBRARY_PATH</pre><br>3. 编辑 <a href="/uploads/note/server.xml">server.xml</a></p>
 <p><pre class="lang:sh decode:true ">&lt;Connector<br>    protocol=”org.apache.coyote.http11.Http11AprProtocol”<br>    adress=”127.0.0.1”<br>    port=”8443” maxThreads=”200”<br>    scheme=”https” secure=”true” SSLEnabled=”true”<br>    SSLCertificateFile=”/opt/apache-tomcat-7/ssl/coolstar-pc.crt”<br>    SSLCertificateKeyFile=”/opt/apache-tomcat-7/ssl/coolstar-pc.key”<br>    SSLVerifyClient=”optional” SSLProtocol=”TLSv1+TLSv1.1+TLSv1.2” /&gt;</pre><br>&nbsp;</p>
 
       

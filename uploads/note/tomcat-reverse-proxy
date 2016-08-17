@@ -1,0 +1,28 @@
+proxy_cache_path /opt/nginx/cache levels=1:2 keys_zone=my_cache:10m max_size=10g inactive=60m use_temp_path=off;
+server {
+	listen          80;
+	listen		443;
+	server_name     tomcat.coolstar-pc.top;
+	root            /opt/apache-tomcat-7/webapps/;
+
+	ssl_protocols  SSLv3 TLSv1.2;
+	ssl_prefer_server_ciphers on;
+	ssl_ciphers ECDH+AESGCM:DH+AESGCM:ECDH+AES256:DH+AES256:ECDH+AES128:DH+AES:ECDH+3DES:DH+3DES:RSA+AESGCM:RSA+AES:RSA+3DES:!aNULL:!MD5:!DSS;
+	keepalive_timeout    70;
+	ssl_session_cache    shared:SSL:10m;
+	ssl_session_timeout  10m;
+	ssl_certificate  /opt/nginx/conf/ssl/coolstar-pc.crt;
+	ssl_certificate_key /opt/nginx/conf/ssl/coolstar-pc.key;
+
+	proxy_cache my_cache;
+	proxy_cache_valid  200 302  60m;
+	proxy_cache_valid  404      1m;
+	client_max_body_size 20M;
+
+	location / {
+		proxy_set_header X-Forwarded-Host $host;
+		proxy_set_header X-Forwarded-Server $host;
+		proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+		proxy_pass http://127.0.0.1:8080/;
+	}
+}

@@ -12,7 +12,7 @@
 <p><pre class="lang:sh decode:true">cd $CATALINA_HOME/bin/tomcat-native-1.1.23-src/jni/native<br>./configure  –with-apr=/usr/local/apr<br>             –prefix=/opt/apache-tomcat-7</pre><br>2. 添加环境变量 LD_LIBRARY_PATH</p>
 <p>编辑</p>
 <p><pre class="lang:sh decode:true ">$CATALINA_HOME／bin</pre><br>下的setenv.sh文件，添加以下2行</p>
-<p><pre class="lang:sh decode:true ">LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$CATALINA_HOME/lib<br>export LD_LIBRARY_PATH</pre><br>3. 编辑 server.xml</p>
+<p><pre class="lang:sh decode:true ">LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$CATALINA_HOME/lib<br>export LD_LIBRARY_PATH</pre><br>3. 编辑 <a href="/uploads/note/server.xml">server.xml</a></p>
 <p><pre class="lang:sh decode:true ">&lt;Connector<br>    protocol=”org.apache.coyote.http11.Http11AprProtocol”<br>    adress=”127.0.0.1”<br>    port=”8443” maxThreads=”200”<br>    scheme=”https” secure=”true” SSLEnabled=”true”<br>    SSLCertificateFile=”/opt/apache-tomcat-7/ssl/coolstar-pc.crt”<br>    SSLCertificateKeyFile=”/opt/apache-tomcat-7/ssl/coolstar-pc.key”<br>    SSLVerifyClient=”optional” SSLProtocol=”TLSv1+TLSv1.1+TLSv1.2” /&gt;</pre><br>&nbsp;</p>
 ]]></content>
     </entry>
@@ -90,7 +90,7 @@ client_max_body_size 20M;
     .....
 </code></pre><p>}<br>inactive 表示 cache 60 分钟后失效。</p>
 <p>http status 为 200 和 302 时，cache</p>
-<p>3.最终配置 <a href="http://dl.coolstar-pc.top/Server-conifg/note/tomcat-reverse-proxy" target="_blank" rel="external">demo</a></p>
+<p>3.最终配置 <a href="/uploads/note/tomcat-reverse-proxy">demo</a></p>
 <h5 id="二、Apache-Tomcat-配置"><a href="#二、Apache-Tomcat-配置" class="headerlink" title="二、Apache Tomcat 配置"></a>二、Apache Tomcat 配置</h5><p>修改 <a href="http://dl.coolstar-pc.top/Server-conifg/note/server.xml" target="_blank" rel="external">server.xml</a>, 使用环路地址 localhost，最大程度保证安全性。</p>
 <p>&nbsp;</p>
 ]]></content>
@@ -214,7 +214,7 @@ public class HelloWorldAction extends ActionSupport{
 <p><pre class="lang:sh decode:true">vim /opt/php7/etc/php-fpm.d/www.conf</pre><br>修改以下参数</p>
 <p><pre class="lang:sh decode:true ">user = coolstar-pc //与nginx配置的user相同<br>group = coolstar-pc<br>;listen = 127.0.0.1:9000<br>listen = /opt/php7/var/run/php7-fpm.sock<br>listen.owner = coolstar-pc<br>listen.group = coolstar-pc</pre><br>copy 启动脚本到 /etc/init.d</p>
 <p><pre class="lang:sh decode:true ">cp ~/php-7.0.6/sapi/fpm/init.d.php-fpm /etc/init.d/php-fpm<br>chmod 777 /etc/init.d/php-fpm<br>service php-fpm restart</pre><br>4.编辑 nginx 站点配置文件，添加对 Fast CGI 的支持</p>
-<p>add 下面一行数据到站点 <a href="http://dl.coolstar-pc.top/Server-conifg/note/blog" target="_blank" rel="external">配置文件</a></p>
+<p>add 下面一行数据到站点 <a href="/uploads/note/blog">配置文件</a></p>
 <p><pre class="lang:sh decode:true ">fastcgi_pass unix:/opt/php7/var/run/php7-fpm.sock;</pre><br>&nbsp;</p>
 <p>&nbsp;</p>
 <p>&nbsp;</p>
