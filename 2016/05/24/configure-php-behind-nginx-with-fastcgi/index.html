@@ -84,23 +84,20 @@
 
 
 
-<meta name="description" content="##### 
-一、FastCGIFastCGI (Common Gateway Interface), 是 Web Server 与 动态脚本 script 之间的通信接口。更多有关FastCGI的信息 PHP manual.
-二、原理Web Server, 如Nginx、Apache，本身不会对外部 script 直接调用或者解析，所有的 script（如PHP）必须通过FastCGI接口来调用">
+<meta name="description" content="一、FastCGIFastCGI (Common Gateway Interface), 是 Web Server 与 动态脚本 script 之间的通信接口。更多有关FastCGI的信息 PHP manual.
+二、原理Web Server, 如Nginx、Apache，本身不会对外部 script 直接调用或者解析，所有的 script（如PHP）必须通过FastCGI接口来调用。FastCG">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Configure PHP behind Nginx with FastCGI">
 <meta property="og:url" content="http://coolstar-pc.top/2016/05/24/configure-php-behind-nginx-with-fastcgi/index.html">
 <meta property="og:site_name" content="Coolstar's 技术博客">
-<meta property="og:description" content="##### 
-一、FastCGIFastCGI (Common Gateway Interface), 是 Web Server 与 动态脚本 script 之间的通信接口。更多有关FastCGI的信息 PHP manual.
-二、原理Web Server, 如Nginx、Apache，本身不会对外部 script 直接调用或者解析，所有的 script（如PHP）必须通过FastCGI接口来调用">
+<meta property="og:description" content="一、FastCGIFastCGI (Common Gateway Interface), 是 Web Server 与 动态脚本 script 之间的通信接口。更多有关FastCGI的信息 PHP manual.
+二、原理Web Server, 如Nginx、Apache，本身不会对外部 script 直接调用或者解析，所有的 script（如PHP）必须通过FastCGI接口来调用。FastCG">
 <meta property="og:image" content="http://coolstar-pc.top/uploads/2016/05/140224291.png">
-<meta property="og:updated_time" content="2016-08-17T12:20:30.473Z">
+<meta property="og:updated_time" content="2016-08-17T12:28:29.622Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Configure PHP behind Nginx with FastCGI">
-<meta name="twitter:description" content="##### 
-一、FastCGIFastCGI (Common Gateway Interface), 是 Web Server 与 动态脚本 script 之间的通信接口。更多有关FastCGI的信息 PHP manual.
-二、原理Web Server, 如Nginx、Apache，本身不会对外部 script 直接调用或者解析，所有的 script（如PHP）必须通过FastCGI接口来调用">
+<meta name="twitter:description" content="一、FastCGIFastCGI (Common Gateway Interface), 是 Web Server 与 动态脚本 script 之间的通信接口。更多有关FastCGI的信息 PHP manual.
+二、原理Web Server, 如Nginx、Apache，本身不会对外部 script 直接调用或者解析，所有的 script（如PHP）必须通过FastCGI接口来调用。FastCG">
 <meta name="twitter:image" content="http://coolstar-pc.top/uploads/2016/05/140224291.png">
 
 
@@ -307,8 +304,7 @@
       
 
       
-        <p>##### </p>
-<h5 id="一、FastCGI"><a href="#一、FastCGI" class="headerlink" title="一、FastCGI"></a>一、FastCGI</h5><p>FastCGI (Common Gateway Interface), 是 Web Server 与 动态脚本 script 之间的通信接口。更多有关FastCGI的信息 <a href="http://php.net/manual/en/install.fpm.php" target="_blank" rel="external">PHP manual</a>.</p>
+        <h5 id="一、FastCGI"><a href="#一、FastCGI" class="headerlink" title="一、FastCGI"></a>一、FastCGI</h5><p>FastCGI (Common Gateway Interface), 是 Web Server 与 动态脚本 script 之间的通信接口。更多有关FastCGI的信息 <a href="http://php.net/manual/en/install.fpm.php" target="_blank" rel="external">PHP manual</a>.</p>
 <h5 id="二、原理"><a href="#二、原理" class="headerlink" title="二、原理"></a>二、原理</h5><p>Web Server, 如Nginx、Apache，本身不会对外部 script 直接调用或者解析，所有的 script（如PHP）必须通过FastCGI接口来调用。FastCGI 接口通过 socket 或者daemon（绑定一个特定的端口9000）与 Web Server 交互。</p>
 <p><img src="/uploads/2016/05/140224291.png" alt="140224291"><br><a id="more"></a></p>
 <p>图 1 Nginx 与 FastCGI 通信</p>
