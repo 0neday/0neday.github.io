@@ -86,7 +86,7 @@
 
 <meta name="description" content="&amp;nbsp;
 目标：使用 Nginx 作为反向代理服务器，重定向 80/443 port 的数据到 Apache Tomcat（Listening 127.0.0.1:8080），以提高 web server 的响应速度和性能，提升用户的访问体验。
-
+  
 一、 Nginx 配置1.将Nginx配置成反向代理服务器，参考 example">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Nginx + Apache Tomcat Configuration">
@@ -94,15 +94,15 @@
 <meta property="og:site_name" content="Coolstar's 技术博客">
 <meta property="og:description" content="&amp;nbsp;
 目标：使用 Nginx 作为反向代理服务器，重定向 80/443 port 的数据到 Apache Tomcat（Listening 127.0.0.1:8080），以提高 web server 的响应速度和性能，提升用户的访问体验。
-
+  
 一、 Nginx 配置1.将Nginx配置成反向代理服务器，参考 example">
 <meta property="og:image" content="http://coolstar-pc.top/uploads/2016/06/tt.png">
-<meta property="og:updated_time" content="2016-08-17T12:23:06.160Z">
+<meta property="og:updated_time" content="2016-08-17T12:42:49.903Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Nginx + Apache Tomcat Configuration">
 <meta name="twitter:description" content="&amp;nbsp;
 目标：使用 Nginx 作为反向代理服务器，重定向 80/443 port 的数据到 Apache Tomcat（Listening 127.0.0.1:8080），以提高 web server 的响应速度和性能，提升用户的访问体验。
-
+  
 一、 Nginx 配置1.将Nginx配置成反向代理服务器，参考 example">
 <meta name="twitter:image" content="http://coolstar-pc.top/uploads/2016/06/tt.png">
 
@@ -312,7 +312,7 @@
       
         <p>&nbsp;</p>
 <p><strong>目标：</strong>使用 Nginx 作为反向代理服务器，重定向 80/443 port 的数据到 Apache Tomcat（Listening 127.0.0.1:8080），以提高 web server 的响应速度和性能，提升用户的访问体验。</p>
-<p><img src="/uploads/2016/06/tt.png" alt="tt"></p>
+<p> <img src="/uploads/2016/06/tt.png" alt="tt"> </p>
 <h5 id="一、-Nginx-配置"><a href="#一、-Nginx-配置" class="headerlink" title="一、 Nginx 配置"></a>一、 Nginx 配置</h5><p>1.将Nginx配置成反向代理服务器，参考 <a href="http://www.mkyong.com/nginx/nginx-apache-tomcat-configuration-example/" target="_blank" rel="external">example</a><br><a id="more"></a></p>
 <p><pre class="lang:python decode:true ">server {<br>        …..<br>    location / {<br>        proxy_set_header X-Forwarded-Host $host;<br>        proxy_set_header X-Forwarded-Server $host;<br>        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;<br>        proxy_pass <a href="http://127.0.0.1:8080/" target="_blank" rel="external">http://127.0.0.1:8080/</a>;<br>    }<br>        …..<br>}</pre><br>2.添加缓存 <a href="https://www.nginx.com/blog/nginx-caching-guide/" target="_blank" rel="external">cache</a></p>
 <p><pre class="lang:sh decode:true">proxy_cache_path /opt/nginx/cache levels=1:2 keys_zone=my_cache:10m max_size=10g inactive=60m use_temp_path=off;<br>server {<br>    ….</pre></p>
@@ -446,7 +446,7 @@ client_max_body_size 20M;
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">5</span>
+                <span class="site-state-item-count">7</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
