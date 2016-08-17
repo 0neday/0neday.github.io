@@ -68,7 +68,7 @@
 <link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="SSL," />
 
 
 
@@ -84,16 +84,22 @@
 
 
 
-<meta name="description" content="使用 JSSE 配置 SSL">
+<meta name="description" content="&amp;nbsp;
+SSL 证书一般是由 OpenSSL 工具生成 x509 证书（标准的 PKI 管理工具），适用于大部分的 web server，而基于 java 的 web 应用程序（Tomcat），默认情况下，使用 jks 类型证书。因此，在使用 JSSE 配置 SSL 之前，需要将 x509 类型的证书转换成 jks 类型的证书。
+思路：先利用 openssl 将 crt 格式的证书转换为 p">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Apache Tomcat 使用 JSSE 配置 SSL">
 <meta property="og:url" content="http://coolstar-pc.top/2016/06/27/apache-tomcat-e4-bd-bf-e7-94-a8-jsse-e9-85-8d-e7-bd-ae-ssl/index.html">
 <meta property="og:site_name" content="Coolstar's 技术博客">
-<meta property="og:description" content="使用 JSSE 配置 SSL">
-<meta property="og:updated_time" content="2016-08-17T11:30:56.724Z">
+<meta property="og:description" content="&amp;nbsp;
+SSL 证书一般是由 OpenSSL 工具生成 x509 证书（标准的 PKI 管理工具），适用于大部分的 web server，而基于 java 的 web 应用程序（Tomcat），默认情况下，使用 jks 类型证书。因此，在使用 JSSE 配置 SSL 之前，需要将 x509 类型的证书转换成 jks 类型的证书。
+思路：先利用 openssl 将 crt 格式的证书转换为 p">
+<meta property="og:updated_time" content="2016-08-17T12:25:46.868Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Apache Tomcat 使用 JSSE 配置 SSL">
-<meta name="twitter:description" content="使用 JSSE 配置 SSL">
+<meta name="twitter:description" content="&amp;nbsp;
+SSL 证书一般是由 OpenSSL 工具生成 x509 证书（标准的 PKI 管理工具），适用于大部分的 web server，而基于 java 的 web 应用程序（Tomcat），默认情况下，使用 jks 类型证书。因此，在使用 JSSE 配置 SSL 之前，需要将 x509 类型的证书转换成 jks 类型的证书。
+思路：先利用 openssl 将 crt 格式的证书转换为 p">
 
 
 
@@ -301,7 +307,7 @@
       
         <p>&nbsp;</p>
 <p>SSL 证书一般是由 OpenSSL 工具生成 <a href="https://en.wikipedia.org/wiki/X.509" target="_blank" rel="external">x509</a> 证书（标准的<a href="https://en.wikipedia.org/wiki/Public_key_infrastructure" target="_blank" rel="external"> PKI</a> 管理工具），适用于大部分的 web server，而基于 java 的 web 应用程序（Tomcat），默认情况下，使用 <a href="https://en.wikipedia.org/wiki/Keystore" target="_blank" rel="external">jks</a> 类型证书。因此，在使用 <a href="https://tomcat.apache.org/tomcat-7.0-doc/ssl-howto.html#Configuration" target="_blank" rel="external">JSSE</a> 配置 SSL 之前，需要将 x509 类型的证书转换成 jks 类型的证书。</p>
-<p><strong>思路：</strong>先利用 openssl 将 crt 格式的证书转换为 <a href="https://en.wikipedia.org/wiki/PKCS_12" target="_blank" rel="external">pkcs 12</a>，再使用 keytool 将pkcs 12 转换成 jks。<br>第一步，从key和crt生成pkcs12格式 </p>
+<p><strong>思路：</strong>先利用 openssl 将 crt 格式的证书转换为 <a href="https://en.wikipedia.org/wiki/PKCS_12" target="_blank" rel="external">pkcs 12</a>，再使用 keytool 将pkcs 12 转换成 jks。<br><a id="more"></a><br>第一步，从key和crt生成pkcs12格式 </p>
 <pre class="lang:sh decode:true "> openssl pkcs12 -export -in mycert.crt -inkey mykey.key 
                -out mycert.p12 -name tomcat 
                -CAfile myCA.crt -caname root -chain </pre>
@@ -331,13 +337,19 @@
 
     <footer class="post-footer">
       
+        <div class="post-tags">
+          
+            <a href="/tags/SSL/" rel="tag">#SSL</a>
+          
+        </div>
+      
 
       
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2016/06/10/ngx-lua/" rel="next" title="ngx_lua">
-                <i class="fa fa-chevron-left"></i> ngx_lua
+              <a href="/2016/06/10/ngx-lua/" rel="next" title="NGX_LUA">
+                <i class="fa fa-chevron-left"></i> NGX_LUA
               </a>
             
           </div>
@@ -421,6 +433,13 @@
 
           
 
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">5</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
           
 
         </nav>

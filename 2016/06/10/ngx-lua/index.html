@@ -68,7 +68,7 @@
 <link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="Nginx," />
 
 
 
@@ -84,17 +84,23 @@
 
 
 
-<meta name="description" content="Nginx 是一个高性能，支持高并发的，轻量级的 Web Sever。 Nginx 采用模块化的架构， 可以通过开发 Nginx 的扩展模块 ， 将 Nginx 打造成一个全能的 Web Sever， 即将一些功能在前端 Nginx 反向代理层解决，比如登录校验、js 合并等。">
+<meta name="description" content="&amp;nbsp;
+Nginx 是一个高性能，支持高并发的，轻量级的 Web Sever。 Nginx 采用模块化的架构， 可以通过开发 Nginx 的扩展模块 ， 将 Nginx 打造成一个全能的 Web Sever， 即将一些功能在前端 Nginx 反向代理层解决，比如登录校验、js 合并等。
+1. Nginx 进程模型">
 <meta property="og:type" content="article">
-<meta property="og:title" content="ngx_lua">
+<meta property="og:title" content="NGX_LUA">
 <meta property="og:url" content="http://coolstar-pc.top/2016/06/10/ngx-lua/index.html">
 <meta property="og:site_name" content="Coolstar's 技术博客">
-<meta property="og:description" content="Nginx 是一个高性能，支持高并发的，轻量级的 Web Sever。 Nginx 采用模块化的架构， 可以通过开发 Nginx 的扩展模块 ， 将 Nginx 打造成一个全能的 Web Sever， 即将一些功能在前端 Nginx 反向代理层解决，比如登录校验、js 合并等。">
+<meta property="og:description" content="&amp;nbsp;
+Nginx 是一个高性能，支持高并发的，轻量级的 Web Sever。 Nginx 采用模块化的架构， 可以通过开发 Nginx 的扩展模块 ， 将 Nginx 打造成一个全能的 Web Sever， 即将一些功能在前端 Nginx 反向代理层解决，比如登录校验、js 合并等。
+1. Nginx 进程模型">
 <meta property="og:image" content="http://coolstar-pc.top/uploads/2016/06/0_1330494922Q49n.gif">
-<meta property="og:updated_time" content="2016-08-17T11:36:58.451Z">
+<meta property="og:updated_time" content="2016-08-17T12:24:56.862Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="ngx_lua">
-<meta name="twitter:description" content="Nginx 是一个高性能，支持高并发的，轻量级的 Web Sever。 Nginx 采用模块化的架构， 可以通过开发 Nginx 的扩展模块 ， 将 Nginx 打造成一个全能的 Web Sever， 即将一些功能在前端 Nginx 反向代理层解决，比如登录校验、js 合并等。">
+<meta name="twitter:title" content="NGX_LUA">
+<meta name="twitter:description" content="&amp;nbsp;
+Nginx 是一个高性能，支持高并发的，轻量级的 Web Sever。 Nginx 采用模块化的架构， 可以通过开发 Nginx 的扩展模块 ， 将 Nginx 打造成一个全能的 Web Sever， 即将一些功能在前端 Nginx 反向代理层解决，比如登录校验、js 合并等。
+1. Nginx 进程模型">
 <meta name="twitter:image" content="http://coolstar-pc.top/uploads/2016/06/0_1330494922Q49n.gif">
 
 
@@ -118,7 +124,7 @@
 
   <link rel="canonical" href="http://coolstar-pc.top/2016/06/10/ngx-lua/"/>
 
-  <title> ngx_lua | Coolstar's 技术博客 </title>
+  <title> NGX_LUA | Coolstar's 技术博客 </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -261,7 +267,7 @@
             
             
               
-                ngx_lua
+                NGX_LUA
               
             
           </h1>
@@ -303,7 +309,7 @@
       
         <p>&nbsp;</p>
 <p>Nginx 是一个高性能，支持高并发的，轻量级的 Web Sever。 Nginx 采用模块化的架构， 可以通过开发 Nginx 的扩展模块 ， 将 Nginx 打造成一个全能的 Web Sever， 即将一些功能在前端 Nginx 反向代理层解决，比如登录校验、js 合并等。</p>
-<h5 id="1-Nginx-进程模型"><a href="#1-Nginx-进程模型" class="headerlink" title="1. Nginx 进程模型"></a><strong>1. Nginx 进程模型</strong></h5><p><img src="/uploads/2016/06/0_1330494922Q49n.gif" alt="0_1330494922Q49n"></p>
+<h5 id="1-Nginx-进程模型"><a href="#1-Nginx-进程模型" class="headerlink" title="1. Nginx 进程模型"></a><strong>1. Nginx 进程模型</strong></h5><p><img src="/uploads/2016/06/0_1330494922Q49n.gif" alt="0_1330494922Q49n"><br><a id="more"></a></p>
 <p>Nginx 采用多进程模型，单 Master — 多 Worker，由 Master 处理外部信号、配置文件的读取及 Worker 的初始化，Worker 进程采用 单线程、非阻塞的事件模型（Event Loop，事件循环）来实现端口的监听及客户端请求的处理和响应，同时Worker还要处理来自 Master 的信号。</p>
 <p>表面上看，当 Nginx 处理一个来自客户端的请求时，先根据请求头的host、ip和 port 来确定由哪个 server 处理，确定了 server 之后，再 根据请求的 uri 找到对应的 location，这个请求就由这个location 处理。实际 Nginx 将一个请求的处理划分为若干个不同阶段 （phase），这些阶段按照前后顺序依次执行。</p>
 <pre class="lang:php decode:true">NGX_HTTP_POST_READ_PHASE,     //0读取请求phase        
@@ -339,6 +345,12 @@ NGX_HTTP_LOG_PHASE            //10log模块</pre>
     </div>
 
     <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Nginx/" rel="tag">#Nginx</a>
+          
+        </div>
       
 
       
@@ -430,6 +442,13 @@ NGX_HTTP_LOG_PHASE            //10log模块</pre>
 
           
 
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">5</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
           
 
         </nav>

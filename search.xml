@@ -6,7 +6,7 @@
     <entry>
       <title><![CDATA[Apache Tomcat 使用 APR 配置 SSL]]></title>
       <url>http://coolstar-pc.top/2016/06/28/apache-tomcat-e4-bd-bf-e7-94-a8-apr-e9-85-8d-e7-bd-ae-ssl/</url>
-      <content type="html"><![CDATA[<p>上次，我们讨论了在 Apache Tomcat 上，使用 JSSE 配置 SSL。可以看出，使用 keytool 将 x509 类型的证书转换成 java 应用程序所支持的 jks 比较繁琐（不仅需要导入 user 证书，还需要导入中间 CA ），另外，不使用 <a href="https://tomcat.apache.org/tomcat-7.0-doc/apr.html" target="_blank" rel="external">APR</a> ，在一定程度上，削弱了 Tomcat 本身具有的性能。</p>
+      <content type="html"><![CDATA[<p>上次，我们讨论了在 Apache Tomcat 上，使用 JSSE 配置 SSL。可以看出，使用 keytool 将 x509 类型的证书转换成 java 应用程序所支持的 jks 比较繁琐（不仅需要导入 user 证书，还需要导入中间 CA ），另外，不使用 <a href="https://tomcat.apache.org/tomcat-7.0-doc/apr.html" target="_blank" rel="external">APR</a> ，在一定程度上，削弱了 Tomcat 本身具有的性能。<br><a id="more"></a></p>
 <p><strong>步骤：</strong></p>
 <p>1. 编译，获取 libtcnative 共享库</p>
 <p><pre class="lang:sh decode:true">cd $CATALINA_HOME/bin/tomcat-native-1.1.23-src/jni/native<br>./configure  –with-apr=/usr/local/apr<br>             –prefix=/opt/apache-tomcat-7</pre><br>2. 添加环境变量 LD_LIBRARY_PATH</p>
@@ -22,7 +22,7 @@
       <url>http://coolstar-pc.top/2016/06/27/apache-tomcat-e4-bd-bf-e7-94-a8-jsse-e9-85-8d-e7-bd-ae-ssl/</url>
       <content type="html"><![CDATA[<p>&nbsp;</p>
 <p>SSL 证书一般是由 OpenSSL 工具生成 <a href="https://en.wikipedia.org/wiki/X.509" target="_blank" rel="external">x509</a> 证书（标准的<a href="https://en.wikipedia.org/wiki/Public_key_infrastructure" target="_blank" rel="external"> PKI</a> 管理工具），适用于大部分的 web server，而基于 java 的 web 应用程序（Tomcat），默认情况下，使用 <a href="https://en.wikipedia.org/wiki/Keystore" target="_blank" rel="external">jks</a> 类型证书。因此，在使用 <a href="https://tomcat.apache.org/tomcat-7.0-doc/ssl-howto.html#Configuration" target="_blank" rel="external">JSSE</a> 配置 SSL 之前，需要将 x509 类型的证书转换成 jks 类型的证书。</p>
-<p><strong>思路：</strong>先利用 openssl 将 crt 格式的证书转换为 <a href="https://en.wikipedia.org/wiki/PKCS_12" target="_blank" rel="external">pkcs 12</a>，再使用 keytool 将pkcs 12 转换成 jks。<br>第一步，从key和crt生成pkcs12格式 </p>
+<p><strong>思路：</strong>先利用 openssl 将 crt 格式的证书转换为 <a href="https://en.wikipedia.org/wiki/PKCS_12" target="_blank" rel="external">pkcs 12</a>，再使用 keytool 将pkcs 12 转换成 jks。<br><a id="more"></a><br>第一步，从key和crt生成pkcs12格式 </p>
 <pre class="lang:sh decode:true "> openssl pkcs12 -export -in mycert.crt -inkey mykey.key 
                -out mycert.p12 -name tomcat 
                -CAfile myCA.crt -caname root -chain </pre>
@@ -36,11 +36,11 @@
     </entry>
     
     <entry>
-      <title><![CDATA[ngx_lua]]></title>
+      <title><![CDATA[NGX_LUA]]></title>
       <url>http://coolstar-pc.top/2016/06/10/ngx-lua/</url>
       <content type="html"><![CDATA[<p>&nbsp;</p>
 <p>Nginx 是一个高性能，支持高并发的，轻量级的 Web Sever。 Nginx 采用模块化的架构， 可以通过开发 Nginx 的扩展模块 ， 将 Nginx 打造成一个全能的 Web Sever， 即将一些功能在前端 Nginx 反向代理层解决，比如登录校验、js 合并等。</p>
-<h5 id="1-Nginx-进程模型"><a href="#1-Nginx-进程模型" class="headerlink" title="1. Nginx 进程模型"></a><strong>1. Nginx 进程模型</strong></h5><p><img src="/uploads/2016/06/0_1330494922Q49n.gif" alt="0_1330494922Q49n"></p>
+<h5 id="1-Nginx-进程模型"><a href="#1-Nginx-进程模型" class="headerlink" title="1. Nginx 进程模型"></a><strong>1. Nginx 进程模型</strong></h5><p><img src="/uploads/2016/06/0_1330494922Q49n.gif" alt="0_1330494922Q49n"><br><a id="more"></a></p>
 <p>Nginx 采用多进程模型，单 Master — 多 Worker，由 Master 处理外部信号、配置文件的读取及 Worker 的初始化，Worker 进程采用 单线程、非阻塞的事件模型（Event Loop，事件循环）来实现端口的监听及客户端请求的处理和响应，同时Worker还要处理来自 Master 的信号。</p>
 <p>表面上看，当 Nginx 处理一个来自客户端的请求时，先根据请求头的host、ip和 port 来确定由哪个 server 处理，确定了 server 之后，再 根据请求的 uri 找到对应的 location，这个请求就由这个location 处理。实际 Nginx 将一个请求的处理划分为若干个不同阶段 （phase），这些阶段按照前后顺序依次执行。</p>
 <pre class="lang:php decode:true">NGX_HTTP_POST_READ_PHASE,     //0读取请求phase        
@@ -79,7 +79,7 @@ NGX_HTTP_LOG_PHASE            //10log模块</pre>
       <content type="html"><![CDATA[<p>&nbsp;</p>
 <p><strong>目标：</strong>使用 Nginx 作为反向代理服务器，重定向 80/443 port 的数据到 Apache Tomcat（Listening 127.0.0.1:8080），以提高 web server 的响应速度和性能，提升用户的访问体验。</p>
 <p><img src="/uploads/2016/06/tt.png" alt="tt"></p>
-<h5 id="一、-Nginx-配置"><a href="#一、-Nginx-配置" class="headerlink" title="一、 Nginx 配置"></a>一、 Nginx 配置</h5><p>1.将Nginx配置成反向代理服务器，参考 <a href="http://www.mkyong.com/nginx/nginx-apache-tomcat-configuration-example/" target="_blank" rel="external">example</a></p>
+<h5 id="一、-Nginx-配置"><a href="#一、-Nginx-配置" class="headerlink" title="一、 Nginx 配置"></a>一、 Nginx 配置</h5><p>1.将Nginx配置成反向代理服务器，参考 <a href="http://www.mkyong.com/nginx/nginx-apache-tomcat-configuration-example/" target="_blank" rel="external">example</a><br><a id="more"></a></p>
 <p><pre class="lang:python decode:true ">server {<br>        …..<br>    location / {<br>        proxy_set_header X-Forwarded-Host $host;<br>        proxy_set_header X-Forwarded-Server $host;<br>        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;<br>        proxy_pass <a href="http://127.0.0.1:8080/" target="_blank" rel="external">http://127.0.0.1:8080/</a>;<br>    }<br>        …..<br>}</pre><br>2.添加缓存 <a href="https://www.nginx.com/blog/nginx-caching-guide/" target="_blank" rel="external">cache</a></p>
 <p><pre class="lang:sh decode:true">proxy_cache_path /opt/nginx/cache levels=1:2 keys_zone=my_cache:10m max_size=10g inactive=60m use_temp_path=off;<br>server {<br>    ….</pre></p>
 <pre><code>proxy_cache my_cache;
@@ -131,7 +131,7 @@ client_max_body_size 20M;
       <title><![CDATA[OpenSSL Certificate Authority]]></title>
       <url>http://coolstar-pc.top/2016/05/25/openssl-certificate-authority/</url>
       <content type="html"><![CDATA[<h5 id="一、OpenSSL"><a href="#一、OpenSSL" class="headerlink" title="一、OpenSSL"></a>一、OpenSSL</h5><p><a href="https://en.wikipedia.org/wiki/OpenSSL" target="_blank" rel="external">OpenSSL</a> is a free and open-source cryptographic library that provides several command-line tools for handling digital certificates.</p>
-<p>OpenSSL 是一种加密工具，包含开源的 SSL/TLS 协议实现，command-line tools, 以及各种各样的加密函数库，这些加密库函数可以被开发者调用，开发各种基于 UI 的加密工具。</p>
+<p>OpenSSL 是一种加密工具，包含开源的 SSL/TLS 协议实现，command-line tools, 以及各种各样的加密函数库，这些加密库函数可以被开发者调用，开发各种基于 UI 的加密工具。<br><a id="more"></a></p>
 <h5 id="二、CA"><a href="#二、CA" class="headerlink" title="二、CA"></a>二、CA</h5><p><a href="https://en.wikipedia.org/wiki/Certificate_authority" target="_blank" rel="external">CA</a> (certificate authority) is an entity that signs digital certificates. Many websites need to let their customers know that the connection is secure, so they pay an internationally trusted CA (eg, VeriSign, DigiCert) to sign a certificate for their domain.</p>
 <p>CA 可以看作是一种信任授权机构。在加密通信环境中或匿名通信环境中，访问者与被访问者之间，最初是相互不信任的，他们需要一个可信的中间人，作为媒介，以达到相互信任的目的。</p>
 <p>一般而言，有 2 种类型的 CA， 即 Root CA （根 CA）和 Intermediate CA （中间 CA）. 通常情况下，为了最大程度地保护 Root CA 的安全性，Root CA 不直接签发用户证书（且处于离网状态），而由授权的中间 CA 来签发用户证书，从而避免被恶意攻击篡改。</p>
@@ -164,7 +164,9 @@ client_max_body_size 20M;
 <p><a href="http://drops.wooyun.org/papers/15430" target="_blank" rel="external">CVE-2016-3081</a>, 官方为S2-032漏洞。在开启动态方法调用 <a href="https://struts.apache.org/docs/action-configuration.html#ActionConfiguration-DynamicMethodInvocation" target="_blank" rel="external">DMI</a> （Dynamic Method Invocation）的情况下，会被攻击者实现远程代码执行攻击。受影响的版本有2.3.18-2.3.28(除 2.3.20.2 and 2.3.24.2)。</p>
 <h5 id="一、漏洞触发条件"><a href="#一、漏洞触发条件" class="headerlink" title="一、漏洞触发条件"></a>一、漏洞触发条件</h5><p>1. struts.xml里开启DMI</p>
 <pre class="lang:xhtml decode:true ">&lt;constant name="struts.enable.DynamicMethodInvocation" value="true"/&gt;</pre>
-2\. 实现DMI的action类（.java）
+
+<a id="more"></a>
+<p>2. 实现DMI的action类（.java）</p>
 <pre class="lang:java decode:true ">package cn.jsou.action;
 
 import com.opensymphony.xwork2.Action;
@@ -201,7 +203,7 @@ public class HelloWorldAction extends ActionSupport{
       <content type="html"><![CDATA[<p>##### </p>
 <h5 id="一、FastCGI"><a href="#一、FastCGI" class="headerlink" title="一、FastCGI"></a>一、FastCGI</h5><p>FastCGI (Common Gateway Interface), 是 Web Server 与 动态脚本 script 之间的通信接口。更多有关FastCGI的信息 <a href="http://php.net/manual/en/install.fpm.php" target="_blank" rel="external">PHP manual</a>.</p>
 <h5 id="二、原理"><a href="#二、原理" class="headerlink" title="二、原理"></a>二、原理</h5><p>Web Server, 如Nginx、Apache，本身不会对外部 script 直接调用或者解析，所有的 script（如PHP）必须通过FastCGI接口来调用。FastCGI 接口通过 socket 或者daemon（绑定一个特定的端口9000）与 Web Server 交互。</p>
-<p><img src="/uploads/2016/05/140224291.png" alt="140224291"></p>
+<p><img src="/uploads/2016/05/140224291.png" alt="140224291"><br><a id="more"></a></p>
 <p>图 1 Nginx 与 FastCGI 通信</p>
 <h5 id="三、配置"><a href="#三、配置" class="headerlink" title="三、配置"></a>三、配置</h5><p>1.下载最新版的 <a href="http://php.net/downloads.php" target="_blank" rel="external">php</a></p>
 <pre class="lang:sh decode:true">wget -c http://am1.php.net/distributions/php-7.0.6.tar.gz</pre>

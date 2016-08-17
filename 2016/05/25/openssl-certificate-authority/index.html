@@ -68,7 +68,7 @@
 <link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="OpenSSL," />
 
 
 
@@ -84,18 +84,21 @@
 
 
 
-<meta name="description" content="OpenSSL 是一种加密工具，包含开源的 SSL/TLS 协议实现，command-line tools, 以及各种各样的加密函数库，这些加密库函数可以被开发者调用，开发各种基于 UI 的加密工具。">
+<meta name="description" content="一、OpenSSLOpenSSL is a free and open-source cryptographic library that provides several command-line tools for handling digital certificates.
+OpenSSL 是一种加密工具，包含开源的 SSL/TLS 协议实现，command-line tools, 以及各种">
 <meta property="og:type" content="article">
 <meta property="og:title" content="OpenSSL Certificate Authority">
 <meta property="og:url" content="http://coolstar-pc.top/2016/05/25/openssl-certificate-authority/index.html">
 <meta property="og:site_name" content="Coolstar's 技术博客">
-<meta property="og:description" content="OpenSSL 是一种加密工具，包含开源的 SSL/TLS 协议实现，command-line tools, 以及各种各样的加密函数库，这些加密库函数可以被开发者调用，开发各种基于 UI 的加密工具。">
+<meta property="og:description" content="一、OpenSSLOpenSSL is a free and open-source cryptographic library that provides several command-line tools for handling digital certificates.
+OpenSSL 是一种加密工具，包含开源的 SSL/TLS 协议实现，command-line tools, 以及各种">
 <meta property="og:image" content="http://coolstar-pc.top/uploads/2016/05/Selection_003.png">
 <meta property="og:image" content="http://coolstar-pc.top/uploads/2016/05/Chain_of_trust.svg_.png">
-<meta property="og:updated_time" content="2016-08-17T11:35:06.509Z">
+<meta property="og:updated_time" content="2016-08-17T12:26:33.294Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="OpenSSL Certificate Authority">
-<meta name="twitter:description" content="OpenSSL 是一种加密工具，包含开源的 SSL/TLS 协议实现，command-line tools, 以及各种各样的加密函数库，这些加密库函数可以被开发者调用，开发各种基于 UI 的加密工具。">
+<meta name="twitter:description" content="一、OpenSSLOpenSSL is a free and open-source cryptographic library that provides several command-line tools for handling digital certificates.
+OpenSSL 是一种加密工具，包含开源的 SSL/TLS 协议实现，command-line tools, 以及各种">
 <meta name="twitter:image" content="http://coolstar-pc.top/uploads/2016/05/Selection_003.png">
 
 
@@ -303,7 +306,7 @@
 
       
         <h5 id="一、OpenSSL"><a href="#一、OpenSSL" class="headerlink" title="一、OpenSSL"></a>一、OpenSSL</h5><p><a href="https://en.wikipedia.org/wiki/OpenSSL" target="_blank" rel="external">OpenSSL</a> is a free and open-source cryptographic library that provides several command-line tools for handling digital certificates.</p>
-<p>OpenSSL 是一种加密工具，包含开源的 SSL/TLS 协议实现，command-line tools, 以及各种各样的加密函数库，这些加密库函数可以被开发者调用，开发各种基于 UI 的加密工具。</p>
+<p>OpenSSL 是一种加密工具，包含开源的 SSL/TLS 协议实现，command-line tools, 以及各种各样的加密函数库，这些加密库函数可以被开发者调用，开发各种基于 UI 的加密工具。<br><a id="more"></a></p>
 <h5 id="二、CA"><a href="#二、CA" class="headerlink" title="二、CA"></a>二、CA</h5><p><a href="https://en.wikipedia.org/wiki/Certificate_authority" target="_blank" rel="external">CA</a> (certificate authority) is an entity that signs digital certificates. Many websites need to let their customers know that the connection is secure, so they pay an internationally trusted CA (eg, VeriSign, DigiCert) to sign a certificate for their domain.</p>
 <p>CA 可以看作是一种信任授权机构。在加密通信环境中或匿名通信环境中，访问者与被访问者之间，最初是相互不信任的，他们需要一个可信的中间人，作为媒介，以达到相互信任的目的。</p>
 <p>一般而言，有 2 种类型的 CA， 即 Root CA （根 CA）和 Intermediate CA （中间 CA）. 通常情况下，为了最大程度地保护 Root CA 的安全性，Root CA 不直接签发用户证书（且处于离网状态），而由授权的中间 CA 来签发用户证书，从而避免被恶意攻击篡改。</p>
@@ -345,6 +348,12 @@
     </div>
 
     <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/OpenSSL/" rel="tag">#OpenSSL</a>
+          
+        </div>
       
 
       
@@ -436,6 +445,13 @@
 
           
 
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">5</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
           
 
         </nav>

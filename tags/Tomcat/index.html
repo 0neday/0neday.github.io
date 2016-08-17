@@ -68,7 +68,7 @@
 <link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="PHP," />
+  <meta name="keywords" content="Hexo, NexT" />
 
 
 
@@ -84,24 +84,15 @@
 
 
 
-<meta name="description" content="##### 
-一、FastCGIFastCGI (Common Gateway Interface), 是 Web Server 与 动态脚本 script 之间的通信接口。更多有关FastCGI的信息 PHP manual.
-二、原理Web Server, 如Nginx、Apache，本身不会对外部 script 直接调用或者解析，所有的 script（如PHP）必须通过FastCGI接口来调用">
-<meta property="og:type" content="article">
-<meta property="og:title" content="Configure PHP behind Nginx with FastCGI">
-<meta property="og:url" content="http://coolstar-pc.top/2016/05/24/configure-php-behind-nginx-with-fastcgi/index.html">
+<meta name="description" content="改变世界的是这么一群人，他们寻找梦想中的乐园，当他们找不到时，便亲手创造了她...，爱开源、喜欢node.js、前端js、oracle数据库、分布式技术...">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Coolstar's 技术博客">
+<meta property="og:url" content="http://coolstar-pc.top/tags/Tomcat/index.html">
 <meta property="og:site_name" content="Coolstar's 技术博客">
-<meta property="og:description" content="##### 
-一、FastCGIFastCGI (Common Gateway Interface), 是 Web Server 与 动态脚本 script 之间的通信接口。更多有关FastCGI的信息 PHP manual.
-二、原理Web Server, 如Nginx、Apache，本身不会对外部 script 直接调用或者解析，所有的 script（如PHP）必须通过FastCGI接口来调用">
-<meta property="og:image" content="http://coolstar-pc.top/uploads/2016/05/140224291.png">
-<meta property="og:updated_time" content="2016-08-17T12:20:30.473Z">
+<meta property="og:description" content="改变世界的是这么一群人，他们寻找梦想中的乐园，当他们找不到时，便亲手创造了她...，爱开源、喜欢node.js、前端js、oracle数据库、分布式技术...">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Configure PHP behind Nginx with FastCGI">
-<meta name="twitter:description" content="##### 
-一、FastCGIFastCGI (Common Gateway Interface), 是 Web Server 与 动态脚本 script 之间的通信接口。更多有关FastCGI的信息 PHP manual.
-二、原理Web Server, 如Nginx、Apache，本身不会对外部 script 直接调用或者解析，所有的 script（如PHP）必须通过FastCGI接口来调用">
-<meta name="twitter:image" content="http://coolstar-pc.top/uploads/2016/05/140224291.png">
+<meta name="twitter:title" content="Coolstar's 技术博客">
+<meta name="twitter:description" content="改变世界的是这么一群人，他们寻找梦想中的乐园，当他们找不到时，便亲手创造了她...，爱开源、喜欢node.js、前端js、oracle数据库、分布式技术...">
 
 
 
@@ -122,9 +113,9 @@
 
 
 
-  <link rel="canonical" href="http://coolstar-pc.top/2016/05/24/configure-php-behind-nginx-with-fastcgi/"/>
+  <link rel="canonical" href="http://coolstar-pc.top/tags/Tomcat/"/>
 
-  <title> Configure PHP behind Nginx with FastCGI | Coolstar's 技术博客 </title>
+  <title> 标签: Tomcat | Coolstar's 技术博客 </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -145,7 +136,7 @@
     
   
 
-  <div class="container one-collumn sidebar-position-left page-post-detail ">
+  <div class="container one-collumn sidebar-position-left  ">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -246,144 +237,46 @@
           <div id="content" class="content">
             
 
-  <div id="posts" class="posts-expand">
-    
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+  <div id="posts" class="posts-collapse">
+    <div class="collection-title">
+      <h2 >
+        Tomcat
+        <small>标签</small>
+      </h2>
+    </div>
 
     
-      <header class="post-header">
+      
 
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+
+      <h1 class="post-title">
         
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
+            <a class="post-title-link" href="/2016/06/07/nginx-apache-tomcat-configuration/" itemprop="url">
               
-                Configure PHP behind Nginx with FastCGI
+                <span itemprop="name">Nginx + Apache Tomcat Configuration</span>
               
-            
-          </h1>
+            </a>
         
+      </h1>
 
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-05-24T02:52:41+08:00" content="2016-05-24">
-              2016-05-24
-            </time>
-          </span>
+      <div class="post-meta">
+        <time class="post-time" itemprop="dateCreated"
+              datetime="2016-06-07T11:26:50+08:00"
+              content="2016-06-07" >
+          06-07
+        </time>
+      </div>
 
-          
-
-          
-            
-          
-
-          
-
-          
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        <p>##### </p>
-<h5 id="一、FastCGI"><a href="#一、FastCGI" class="headerlink" title="一、FastCGI"></a>一、FastCGI</h5><p>FastCGI (Common Gateway Interface), 是 Web Server 与 动态脚本 script 之间的通信接口。更多有关FastCGI的信息 <a href="http://php.net/manual/en/install.fpm.php" target="_blank" rel="external">PHP manual</a>.</p>
-<h5 id="二、原理"><a href="#二、原理" class="headerlink" title="二、原理"></a>二、原理</h5><p>Web Server, 如Nginx、Apache，本身不会对外部 script 直接调用或者解析，所有的 script（如PHP）必须通过FastCGI接口来调用。FastCGI 接口通过 socket 或者daemon（绑定一个特定的端口9000）与 Web Server 交互。</p>
-<p><img src="/uploads/2016/05/140224291.png" alt="140224291"><br><a id="more"></a></p>
-<p>图 1 Nginx 与 FastCGI 通信</p>
-<h5 id="三、配置"><a href="#三、配置" class="headerlink" title="三、配置"></a>三、配置</h5><p>1.下载最新版的 <a href="http://php.net/downloads.php" target="_blank" rel="external">php</a></p>
-<pre class="lang:sh decode:true">wget -c http://am1.php.net/distributions/php-7.0.6.tar.gz</pre>
-
-<p>2.编译</p>
-<p>由于 <a href="https://github.com/php-build/php-build/issues/348" target="_blank" rel="external">php7</a>，已经彻底放弃了–with-myql 选项，改用<a href="https://dev.mysql.com/downloads/connector/php-mysqlnd/" target="_blank" rel="external"> mysqlnd</a>，如果直接用此选择，而不选择 mysqli 和 pdo，会导致连接mysql出错,因为 php script 找不到连接mysql 的驱动。添加 –enable-fpm 选项，使能 FastCGI.</p>
-<p><pre class="lang:sh decode:true">./configure –prefix=/opt/php7 \<br>–enable-fpm \<br>–enable-mysqlnd \<br>–with-mysqli=mysqlnd \<br>–with-pdo-mysql=mysqlnd \<br>–with-mysql-sock=/var/run/mysqld/mysqld.sock \<br>–enable-mbstring \<br>–enable-sockets</pre><br>3. 更改配置文件</p>
-<p>采用 socket 方式连接 webserver</p>
-<p><pre class="lang:sh decode:true">vim /opt/php7/etc/php-fpm.d/www.conf</pre><br>修改以下参数</p>
-<p><pre class="lang:sh decode:true ">user = coolstar-pc //与nginx配置的user相同<br>group = coolstar-pc<br>;listen = 127.0.0.1:9000<br>listen = /opt/php7/var/run/php7-fpm.sock<br>listen.owner = coolstar-pc<br>listen.group = coolstar-pc</pre><br>copy 启动脚本到 /etc/init.d</p>
-<p><pre class="lang:sh decode:true ">cp ~/php-7.0.6/sapi/fpm/init.d.php-fpm /etc/init.d/php-fpm<br>chmod 777 /etc/init.d/php-fpm<br>service php-fpm restart</pre><br>4.编辑 nginx 站点配置文件，添加对 Fast CGI 的支持</p>
-<p>add 下面一行数据到站点 <a href="http://dl.coolstar-pc.top/Server-conifg/note/blog" target="_blank" rel="external">配置文件</a></p>
-<p><pre class="lang:sh decode:true ">fastcgi_pass unix:/opt/php7/var/run/php7-fpm.sock;</pre><br>&nbsp;</p>
-<p>&nbsp;</p>
-<p>&nbsp;</p>
-
-      
-    </div>
-
-    <div>
-      
-        
-
-      
-    </div>
-
-    <div>
-      
-        
-
-      
-    </div>
-
-    <footer class="post-footer">
-      
-        <div class="post-tags">
-          
-            <a href="/tags/PHP/" rel="tag">#PHP</a>
-          
-        </div>
-      
-
-      
-        <div class="post-nav">
-          <div class="post-nav-next post-nav-item">
-            
-              <a href="/2016/01/27/hello-world/" rel="next" title="Hello World">
-                <i class="fa fa-chevron-left"></i> Hello World
-              </a>
-            
-          </div>
-
-          <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2016/05/25/struts2-exploit-cve-2016-3081/" rel="prev" title="Struts2 Exploit CVE-2016-3081">
-                Struts2 Exploit CVE-2016-3081 <i class="fa fa-chevron-right"></i>
-              </a>
-            
-          </div>
-        </div>
-      
-
-      
-      
-    </footer>
+    </header>
   </article>
 
 
-
-    <div class="post-spread">
-      
-    </div>
+    
   </div>
+
+  
 
 
           </div>
@@ -391,10 +284,6 @@
 
 
           
-  <div class="comments" id="comments">
-    
-  </div>
-
 
         </div>
         
@@ -414,17 +303,8 @@
       
 
       
-        <ul class="sidebar-nav motion-element">
-          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
-            文章目录
-          </li>
-          <li class="sidebar-nav-overview" data-target="site-overview">
-            站点概览
-          </li>
-        </ul>
-      
 
-      <section class="site-overview sidebar-panel ">
+      <section class="site-overview sidebar-panel  sidebar-panel-active ">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/uploads/avatar1.png"
@@ -467,17 +347,6 @@
 
       </section>
 
-      
-        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
-          <div class="post-toc">
-            
-              
-            
-            
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-5"><a class="nav-link" href="#一、FastCGI"><span class="nav-number">1.</span> <span class="nav-text">一、FastCGI</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#二、原理"><span class="nav-number">2.</span> <span class="nav-text">二、原理</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#三、配置"><span class="nav-number">3.</span> <span class="nav-text">三、配置</span></a></li></ol></div>
-            
-          </div>
-        </section>
       
 
     </div>
@@ -564,10 +433,6 @@
   
 
   
-  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
-<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
-
-
 
   
 

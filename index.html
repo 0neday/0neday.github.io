@@ -304,9 +304,9 @@
 
       
         
-          使用 APR 配置 SSL
+          <p>上次，我们讨论了在 Apache Tomcat 上，使用 JSSE 配置 SSL。可以看出，使用 keytool 将 x509 类型的证书转换成 java 应用程序所支持的 jks 比较繁琐（不仅需要导入 user 证书，还需要导入中间 CA ），另外，不使用 <a href="https://tomcat.apache.org/tomcat-7.0-doc/apr.html">APR</a> ，在一定程度上，削弱了 Tomcat 本身具有的性能。<br>
           <div class="post-more-link text-center">
-            <a class="btn" href="/2016/06/28/apache-tomcat-e4-bd-bf-e7-94-a8-apr-e9-85-8d-e7-bd-ae-ssl/">
+            <a class="btn" href="/2016/06/28/apache-tomcat-e4-bd-bf-e7-94-a8-apr-e9-85-8d-e7-bd-ae-ssl/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -400,9 +400,11 @@
 
       
         
-          使用 JSSE 配置 SSL
+          <p>&nbsp;</p>
+<p>SSL 证书一般是由 OpenSSL 工具生成 <a href="https://en.wikipedia.org/wiki/X.509">x509</a> 证书（标准的<a href="https://en.wikipedia.org/wiki/Public_key_infrastructure"> PKI</a> 管理工具），适用于大部分的 web server，而基于 java 的 web 应用程序（Tomcat），默认情况下，使用 <a href="https://en.wikipedia.org/wiki/Keystore">jks</a> 类型证书。因此，在使用 <a href="https://tomcat.apache.org/tomcat-7.0-doc/ssl-howto.html#Configuration">JSSE</a> 配置 SSL 之前，需要将 x509 类型的证书转换成 jks 类型的证书。</p>
+<p><strong>思路：</strong>先利用 openssl 将 crt 格式的证书转换为 <a href="https://en.wikipedia.org/wiki/PKCS_12">pkcs 12</a>，再使用 keytool 将pkcs 12 转换成 jks。<br>
           <div class="post-more-link text-center">
-            <a class="btn" href="/2016/06/27/apache-tomcat-e4-bd-bf-e7-94-a8-jsse-e9-85-8d-e7-bd-ae-ssl/">
+            <a class="btn" href="/2016/06/27/apache-tomcat-e4-bd-bf-e7-94-a8-jsse-e9-85-8d-e7-bd-ae-ssl/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -454,7 +456,7 @@
               
                 
                 <a class="post-title-link" href="/2016/06/10/ngx-lua/" itemprop="url">
-                  ngx_lua
+                  NGX_LUA
                 </a>
               
             
@@ -496,9 +498,11 @@
 
       
         
-          Nginx 是一个高性能，支持高并发的，轻量级的 Web Sever。 Nginx 采用模块化的架构， 可以通过开发 Nginx 的扩展模块 ， 将 Nginx 打造成一个全能的 Web Sever， 即将一些功能在前端 Nginx 反向代理层解决，比如登录校验、js 合并等。
+          <p>&nbsp;</p>
+<p>Nginx 是一个高性能，支持高并发的，轻量级的 Web Sever。 Nginx 采用模块化的架构， 可以通过开发 Nginx 的扩展模块 ， 将 Nginx 打造成一个全能的 Web Sever， 即将一些功能在前端 Nginx 反向代理层解决，比如登录校验、js 合并等。</p>
+<h5 id="1-Nginx-进程模型"><a href="#1-Nginx-进程模型" class="headerlink" title="1. Nginx 进程模型"></a><strong>1. Nginx 进程模型</strong></h5><p><img src="/uploads/2016/06/0_1330494922Q49n.gif" alt="0_1330494922Q49n"><br>
           <div class="post-more-link text-center">
-            <a class="btn" href="/2016/06/10/ngx-lua/">
+            <a class="btn" href="/2016/06/10/ngx-lua/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -688,9 +692,12 @@
 
       
         
-          使用 Nginx 作为反向代理服务器，重定向 80/443 port 的数据到 Apache Tomcat（Listening 127.0.0.1:8080）
+          <p>&nbsp;</p>
+<p><strong>目标：</strong>使用 Nginx 作为反向代理服务器，重定向 80/443 port 的数据到 Apache Tomcat（Listening 127.0.0.1:8080），以提高 web server 的响应速度和性能，提升用户的访问体验。</p>
+<p><img src="/uploads/2016/06/tt.png" alt="tt"></p>
+<h5 id="一、-Nginx-配置"><a href="#一、-Nginx-配置" class="headerlink" title="一、 Nginx 配置"></a>一、 Nginx 配置</h5><p>1.将Nginx配置成反向代理服务器，参考 <a href="http://www.mkyong.com/nginx/nginx-apache-tomcat-configuration-example/">example</a><br>
           <div class="post-more-link text-center">
-            <a class="btn" href="/2016/06/07/nginx-apache-tomcat-configuration/">
+            <a class="btn" href="/2016/06/07/nginx-apache-tomcat-configuration/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -880,9 +887,10 @@
 
       
         
-          OpenSSL 是一种加密工具，包含开源的 SSL/TLS 协议实现，command-line tools, 以及各种各样的加密函数库，这些加密库函数可以被开发者调用，开发各种基于 UI 的加密工具。
+          <h5 id="一、OpenSSL"><a href="#一、OpenSSL" class="headerlink" title="一、OpenSSL"></a>一、OpenSSL</h5><p><a href="https://en.wikipedia.org/wiki/OpenSSL">OpenSSL</a> is a free and open-source cryptographic library that provides several command-line tools for handling digital certificates.</p>
+<p>OpenSSL 是一种加密工具，包含开源的 SSL/TLS 协议实现，command-line tools, 以及各种各样的加密函数库，这些加密库函数可以被开发者调用，开发各种基于 UI 的加密工具。<br>
           <div class="post-more-link text-center">
-            <a class="btn" href="/2016/05/25/openssl-certificate-authority/">
+            <a class="btn" href="/2016/05/25/openssl-certificate-authority/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -976,9 +984,12 @@
 
       
         
-          CVE-2016-3081
+          <p>&nbsp;</p>
+<p><a href="http://drops.wooyun.org/papers/15430">CVE-2016-3081</a>, 官方为S2-032漏洞。在开启动态方法调用 <a href="https://struts.apache.org/docs/action-configuration.html#ActionConfiguration-DynamicMethodInvocation">DMI</a> （Dynamic Method Invocation）的情况下，会被攻击者实现远程代码执行攻击。受影响的版本有2.3.18-2.3.28(除 2.3.20.2 and 2.3.24.2)。</p>
+<h5 id="一、漏洞触发条件"><a href="#一、漏洞触发条件" class="headerlink" title="一、漏洞触发条件"></a>一、漏洞触发条件</h5><p>1. struts.xml里开启DMI</p>
+<pre class="lang:xhtml decode:true ">&lt;constant name="struts.enable.DynamicMethodInvocation" value="true"/&gt;</pre>
           <div class="post-more-link text-center">
-            <a class="btn" href="/2016/05/25/struts2-exploit-cve-2016-3081/">
+            <a class="btn" href="/2016/05/25/struts2-exploit-cve-2016-3081/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -1072,9 +1083,12 @@
 
       
         
-          在 Nginx 上配置 FastCGI，使其支持 PHP 动态页面
+          <p>##### </p>
+<h5 id="一、FastCGI"><a href="#一、FastCGI" class="headerlink" title="一、FastCGI"></a>一、FastCGI</h5><p>FastCGI (Common Gateway Interface), 是 Web Server 与 动态脚本 script 之间的通信接口。更多有关FastCGI的信息 <a href="http://php.net/manual/en/install.fpm.php">PHP manual</a>.</p>
+<h5 id="二、原理"><a href="#二、原理" class="headerlink" title="二、原理"></a>二、原理</h5><p>Web Server, 如Nginx、Apache，本身不会对外部 script 直接调用或者解析，所有的 script（如PHP）必须通过FastCGI接口来调用。FastCGI 接口通过 socket 或者daemon（绑定一个特定的端口9000）与 Web Server 交互。</p>
+<p><img src="/uploads/2016/05/140224291.png" alt="140224291"><br>
           <div class="post-more-link text-center">
-            <a class="btn" href="/2016/05/24/configure-php-behind-nginx-with-fastcgi/">
+            <a class="btn" href="/2016/05/24/configure-php-behind-nginx-with-fastcgi/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -1248,6 +1262,13 @@
 
           
 
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">5</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
           
 
         </nav>
