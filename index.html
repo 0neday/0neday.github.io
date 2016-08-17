@@ -154,16 +154,6 @@
         </li>
       
         
-        <li class="menu-item menu-item-about">
-          <a href="/about" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
-            
-            关于
-          </a>
-        </li>
-      
-        
         <li class="menu-item menu-item-tags">
           <a href="/tags" rel="section">
             
@@ -235,7 +225,7 @@
             
               
                 
-                <a class="post-title-link" href="/2016/06/28/apache-tomcat-e4-bd-bf-e7-94-a8-apr-e9-85-8d-e7-bd-ae-ssl/" itemprop="url">
+                <a class="post-title-link" href="/2016/06/28/apache-tomcat-apr-ssl/" itemprop="url">
                   Apache Tomcat 使用 APR 配置 SSL
                 </a>
               
@@ -280,7 +270,7 @@
         
           <p>上次，我们讨论了在 Apache Tomcat 上，使用 JSSE 配置 SSL。可以看出，使用 keytool 将 x509 类型的证书转换成 java 应用程序所支持的 jks 比较繁琐（不仅需要导入 user 证书，还需要导入中间 CA ），另外，不使用 <a href="https://tomcat.apache.org/tomcat-7.0-doc/apr.html">APR</a> ，在一定程度上，削弱了 Tomcat 本身具有的性能。<br>
           <div class="post-more-link text-center">
-            <a class="btn" href="/2016/06/28/apache-tomcat-e4-bd-bf-e7-94-a8-apr-e9-85-8d-e7-bd-ae-ssl/#more" rel="contents">
+            <a class="btn" href="/2016/06/28/apache-tomcat-apr-ssl/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -331,7 +321,7 @@
             
               
                 
-                <a class="post-title-link" href="/2016/06/27/apache-tomcat-e4-bd-bf-e7-94-a8-jsse-e9-85-8d-e7-bd-ae-ssl/" itemprop="url">
+                <a class="post-title-link" href="/2016/06/27/apache-tomcat-jsse-ssl/" itemprop="url">
                   Apache Tomcat 使用 JSSE 配置 SSL
                 </a>
               
@@ -378,7 +368,7 @@
 <p>SSL 证书一般是由 OpenSSL 工具生成 <a href="https://en.wikipedia.org/wiki/X.509">x509</a> 证书（标准的<a href="https://en.wikipedia.org/wiki/Public_key_infrastructure"> PKI</a> 管理工具），适用于大部分的 web server，而基于 java 的 web 应用程序（Tomcat），默认情况下，使用 <a href="https://en.wikipedia.org/wiki/Keystore">jks</a> 类型证书。因此，在使用 <a href="https://tomcat.apache.org/tomcat-7.0-doc/ssl-howto.html#Configuration">JSSE</a> 配置 SSL 之前，需要将 x509 类型的证书转换成 jks 类型的证书。</p>
 <p><strong>思路：</strong>先利用 openssl 将 crt 格式的证书转换为 <a href="https://en.wikipedia.org/wiki/PKCS_12">pkcs 12</a>，再使用 keytool 将pkcs 12 转换成 jks。<br>
           <div class="post-more-link text-center">
-            <a class="btn" href="/2016/06/27/apache-tomcat-e4-bd-bf-e7-94-a8-jsse-e9-85-8d-e7-bd-ae-ssl/#more" rel="contents">
+            <a class="btn" href="/2016/06/27/apache-tomcat-jsse-ssl/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>

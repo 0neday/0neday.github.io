@@ -63,7 +63,7 @@ SSL 证书一般是由 OpenSSL 工具生成 x509 证书（标准的 PKI 管理�
 思路：先利用 openssl 将 crt 格式的证书转换为 p">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Apache Tomcat 使用 JSSE 配置 SSL">
-<meta property="og:url" content="http://coolstar-pc.top/2016/06/27/apache-tomcat-e4-bd-bf-e7-94-a8-jsse-e9-85-8d-e7-bd-ae-ssl/index.html">
+<meta property="og:url" content="http://coolstar-pc.top/2016/06/27/apache-tomcat-jsse-ssl/index.html">
 <meta property="og:site_name" content="Coolstar's 技术博客">
 <meta property="og:description" content="&amp;nbsp;
 SSL 证书一般是由 OpenSSL 工具生成 x509 证书（标准的 PKI 管理工具），适用于大部分的 web server，而基于 java 的 web 应用程序（Tomcat），默认情况下，使用 jks 类型证书。因此，在使用 JSSE 配置 SSL 之前，需要将 x509 类型的证书转换成 jks 类型的证书。
@@ -94,7 +94,7 @@ SSL 证书一般是由 OpenSSL 工具生成 x509 证书（标准的 PKI 管理�
 
 
 
-  <link rel="canonical" href="http://coolstar-pc.top/2016/06/27/apache-tomcat-e4-bd-bf-e7-94-a8-jsse-e9-85-8d-e7-bd-ae-ssl/"/>
+  <link rel="canonical" href="http://coolstar-pc.top/2016/06/27/apache-tomcat-jsse-ssl/"/>
 
   <title> Apache Tomcat 使用 JSSE 配置 SSL | Coolstar's 技术博客 </title>
 </head>
@@ -155,16 +155,6 @@ SSL 证书一般是由 OpenSSL 工具生成 x509 证书（标准的 PKI 管理�
               <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
             
             首页
-          </a>
-        </li>
-      
-        
-        <li class="menu-item menu-item-about">
-          <a href="/about" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
-            
-            关于
           </a>
         </li>
       
@@ -346,7 +336,7 @@ SSL 证书一般是由 OpenSSL 工具生成 x509 证书（标准的 PKI 管理�
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2016/06/28/apache-tomcat-e4-bd-bf-e7-94-a8-apr-e9-85-8d-e7-bd-ae-ssl/" rel="prev" title="Apache Tomcat 使用 APR 配置 SSL">
+              <a href="/2016/06/28/apache-tomcat-apr-ssl/" rel="prev" title="Apache Tomcat 使用 APR 配置 SSL">
                 Apache Tomcat 使用 APR 配置 SSL <i class="fa fa-chevron-right"></i>
               </a>
             
