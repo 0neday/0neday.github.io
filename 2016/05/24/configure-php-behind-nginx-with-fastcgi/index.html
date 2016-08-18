@@ -93,7 +93,7 @@
 <meta property="og:description" content="一、FastCGIFastCGI (Common Gateway Interface), 是 Web Server 与 动态脚本 script 之间的通信接口。更多有关FastCGI的信息 PHP manual.
 二、原理Web Server, 如Nginx、Apache，本身不会对外部 script 直接调用或者解析，所有的 script（如PHP）必须通过FastCGI接口来调用。FastCG">
 <meta property="og:image" content="http://blog.coolstar-pc.top/uploads/2016/05/140224291.png">
-<meta property="og:updated_time" content="2016-08-18T03:07:05.354Z">
+<meta property="og:updated_time" content="2016-08-18T05:29:36.274Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Configure PHP behind Nginx with FastCGI">
 <meta name="twitter:description" content="一、FastCGIFastCGI (Common Gateway Interface), 是 Web Server 与 动态脚本 script 之间的通信接口。更多有关FastCGI的信息 PHP manual.
@@ -111,7 +111,7 @@
     motion: true,
     duoshuo: {
       userId: 6319991091537905000,
-      author: 'Coolstar'
+      author: 'Admin'
     }
   };
 </script>
@@ -351,37 +351,13 @@
 <h5 id="三、配置"><a href="#三、配置" class="headerlink" title="三、配置"></a>三、配置</h5><p>1.下载最新版的 <a href="http://php.net/downloads.php" target="_blank" rel="external">php</a><br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">wget -c http://am1.php.net/distributions/php-7.0.6.tar.gz</div></pre></td></tr></table></figure></p>
 <p>2.编译</p>
 <p>由于 <a href="https://github.com/php-build/php-build/issues/348" target="_blank" rel="external">php7</a>，已经彻底放弃了–with-myql 选项，改用<a href="https://dev.mysql.com/downloads/connector/php-mysqlnd/" target="_blank" rel="external"> mysqlnd</a>，如果直接用此选择，而不选择 mysqli 和 pdo，会导致连接mysql出错,因为 php script 找不到连接mysql 的驱动。添加 –enable-fpm 选项，使能 FastCGI.</p>
-<pre><code class="bash">./configure --prefix=/opt/php7 \
---enable-fpm \
---enable-mysqlnd \
---with-mysqli=mysqlnd \
---with-pdo-mysql=mysqlnd \
---with-mysql-sock=/var/run/mysqld/mysqld.sock \
---enable-mbstring \
---enable-sockets
-</code></pre>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">./configure --prefix=/opt/php7 \</div><div class="line">--enable-fpm \</div><div class="line">--enable-mysqlnd \</div><div class="line">--with-mysqli=mysqlnd \</div><div class="line">--with-pdo-mysql=mysqlnd \</div><div class="line">--with-mysql-sock=/var/run/mysqld/mysqld.sock \</div><div class="line">--enable-mbstring \</div><div class="line">--enable-sockets</div></pre></td></tr></table></figure>
 <p>3. 更改配置文件</p>
-<p>采用 socket 方式连接 webserver</p>
-<pre><code class="bash">vim /opt/php7/etc/php-fpm.d/www.conf
-</code></pre>
-<p>修改以下参数</p>
-<pre><code class="java">user = coolstar-pc <span class="comment">//与nginx配置的user相同</span>
-group = coolstar-pc
-;listen = <span class="number">127.0</span>.0.1:<span class="number">9000</span>
-listen = /opt/php7/var/run/php7-fpm.sock
-listen.owner = coolstar-pc
-listen.group = coolstar-pc
-</code></pre>
-<p>copy 启动脚本到 /etc/init.d</p>
-<pre><code class="bash">cp ~/php-7.0.6/sapi/fpm/init.d.php-fpm /etc/init.d/php-fpm 
-chmod 777 /etc/init.d/php-fpm 
-service php-fpm restart
-</code></pre>
+<p>采用 socket 方式连接 webserver<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">vim /opt/php7/etc/php-fpm.d/www.conf</div></pre></td></tr></table></figure></p>
+<p>修改以下参数<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">user = coolstar-pc <span class="comment">//与nginx配置的user相同</span></div><div class="line">group = coolstar-pc</div><div class="line">;listen = <span class="number">127.0</span>.0.1:<span class="number">9000</span></div><div class="line">listen = /opt/php7/var/run/php7-fpm.sock</div><div class="line">listen.owner = coolstar-pc</div><div class="line">listen.group = coolstar-pc</div></pre></td></tr></table></figure></p>
+<p>copy 启动脚本到 /etc/init.d<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">cp ~/php-7.0.6/sapi/fpm/init.d.php-fpm /etc/init.d/php-fpm </div><div class="line">chmod 777 /etc/init.d/php-fpm </div><div class="line">service php-fpm restart</div></pre></td></tr></table></figure></p>
 <p>4.编辑 nginx 站点配置文件，添加对 Fast CGI 的支持</p>
-<p>add 下面一行数据到站点 <a href="/uploads/note/blog">配置文件</a></p>
-<pre><code class="bash">fastcgi_pass unix:/opt/php7/var/run/php7-fpm.sock;
-</code></pre>
-<p>&nbsp;</p>
+<p>add 下面一行数据到站点 <a href="/uploads/note/blog">配置文件</a><br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">fastcgi_pass unix:/opt/php7/var/run/php7-fpm.sock;</div></pre></td></tr></table></figure></p>
 <p>&nbsp;</p>
 
       
@@ -454,25 +430,6 @@ service php-fpm restart
 
 
     <div class="post-spread">
-      
-        <div class="ds-share flat" data-thread-key="2016/05/24/configure-php-behind-nginx-with-fastcgi/"
-     data-title="Configure PHP behind Nginx with FastCGI"
-     data-content=""
-     data-url="http://blog.coolstar-pc.top/2016/05/24/configure-php-behind-nginx-with-fastcgi/">
-  <div class="ds-share-inline">
-    <ul  class="ds-share-icons-16">
-
-      <li data-toggle="ds-share-icons-more"><a class="ds-more" href="javascript:void(0);">分享到：</a></li>
-      <li><a class="ds-weibo" href="javascript:void(0);" data-service="weibo">微博</a></li>
-      <li><a class="ds-qzone" href="javascript:void(0);" data-service="qzone">QQ空间</a></li>
-      <li><a class="ds-qqt" href="javascript:void(0);" data-service="qqt">腾讯微博</a></li>
-      <li><a class="ds-wechat" href="javascript:void(0);" data-service="wechat">微信</a></li>
-
-    </ul>
-    <div class="ds-share-icons-more">
-    </div>
-  </div>
-</div>
       
     </div>
   </div>

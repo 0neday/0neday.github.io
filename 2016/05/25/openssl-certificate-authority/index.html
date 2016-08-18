@@ -94,7 +94,7 @@ OpenSSL 是一种加密工具，包含开源的 SSL/TLS 协议实现，command-l
 OpenSSL 是一种加密工具，包含开源的 SSL/TLS 协议实现，command-line tools, 以及各种">
 <meta property="og:image" content="http://blog.coolstar-pc.top/uploads/2016/05/Selection_003.png">
 <meta property="og:image" content="http://blog.coolstar-pc.top/uploads/2016/05/Chain_of_trust.svg_.png">
-<meta property="og:updated_time" content="2016-08-18T03:07:40.664Z">
+<meta property="og:updated_time" content="2016-08-18T05:28:03.399Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="OpenSSL Certificate Authority">
 <meta name="twitter:description" content="一、OpenSSLOpenSSL is a free and open-source cryptographic library that provides several command-line tools for handling digital certificates.
@@ -112,7 +112,7 @@ OpenSSL 是一种加密工具，包含开源的 SSL/TLS 协议实现，command-l
     motion: true,
     duoshuo: {
       userId: 6319991091537905000,
-      author: 'Coolstar'
+      author: 'Admin'
     }
   };
 </script>
@@ -354,9 +354,7 @@ OpenSSL 是一种加密工具，包含开源的 SSL/TLS 协议实现，command-l
 <p>1. Root CA 扮演的角色</p>
 <p>Root CA 属于自签名的证书，内置于浏览器里，随浏览器分发下去。它不需要第三方认可的，只要浏览器开发者把它捆绑到浏览器里，它就被直接认可。</p>
 <p><img src="/uploads/2016/05/Selection_003.png" alt="Selection_003"></p>
-<ol>
-<li>Intermediate CA</li>
-</ol>
+<p>2. Intermediate CA</p>
 <p>中间 CA 直接参与用户证书签发。用户通过生成 CSR （证书签名请求）递交 签名请求，然后由中间 CA 签发。</p>
 <p>3. 证书链及其验证过程</p>
 <p>由于 Root CA 不直接参与签发，所以整个证书就会出现分级授权，这种分级，最终形成一个可靠的证书信任链。每一级证书包含公钥、证书发行者名称，以及证书的签名（这些内容都是明文的）。</p>
@@ -441,25 +439,6 @@ OpenSSL 是一种加密工具，包含开源的 SSL/TLS 协议实现，command-l
 
 
     <div class="post-spread">
-      
-        <div class="ds-share flat" data-thread-key="2016/05/25/openssl-certificate-authority/"
-     data-title="OpenSSL Certificate Authority"
-     data-content=""
-     data-url="http://blog.coolstar-pc.top/2016/05/25/openssl-certificate-authority/">
-  <div class="ds-share-inline">
-    <ul  class="ds-share-icons-16">
-
-      <li data-toggle="ds-share-icons-more"><a class="ds-more" href="javascript:void(0);">分享到：</a></li>
-      <li><a class="ds-weibo" href="javascript:void(0);" data-service="weibo">微博</a></li>
-      <li><a class="ds-qzone" href="javascript:void(0);" data-service="qzone">QQ空间</a></li>
-      <li><a class="ds-qqt" href="javascript:void(0);" data-service="qqt">腾讯微博</a></li>
-      <li><a class="ds-wechat" href="javascript:void(0);" data-service="wechat">微信</a></li>
-
-    </ul>
-    <div class="ds-share-icons-more">
-    </div>
-  </div>
-</div>
       
     </div>
   </div>

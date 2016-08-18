@@ -105,7 +105,7 @@
     motion: true,
     duoshuo: {
       userId: 6319991091537905000,
-      author: 'Coolstar'
+      author: 'Admin'
     }
   };
 </script>
@@ -1209,9 +1209,7 @@
         
           <p>&nbsp;</p>
 <p><a href="http://drops.wooyun.org/papers/15430">CVE-2016-3081</a>, 官方为S2-032漏洞。在开启动态方法调用 <a href="https://struts.apache.org/docs/action-configuration.html#ActionConfiguration-DynamicMethodInvocation">DMI</a> （Dynamic Method Invocation）的情况下，会被攻击者实现远程代码执行攻击。受影响的版本有2.3.18-2.3.28(除 2.3.20.2 and 2.3.24.2)。</p>
-<h5 id="一、漏洞触发条件"><a href="#一、漏洞触发条件" class="headerlink" title="一、漏洞触发条件"></a>一、漏洞触发条件</h5><p>1. struts.xml里开启DMI</p>
-<pre><code class="java">&lt;constant name=<span class="string">"struts.enable.DynamicMethodInvocation"</span> value=<span class="string">"true"</span>&gt;
-</code></pre>
+<h5 id="一、漏洞触发条件"><a href="#一、漏洞触发条件" class="headerlink" title="一、漏洞触发条件"></a>一、漏洞触发条件</h5><p>1. struts.xml里开启DMI<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;constant name=<span class="string">"struts.enable.DynamicMethodInvocation"</span> value=<span class="string">"true"</span>&gt;</div></pre></td></tr></table></figure></p>
           <div class="post-more-link text-center">
             <a class="btn" href="/2016/05/25/struts2-exploit-cve-2016-3081/#more" rel="contents">
               阅读全文 &raquo;
