@@ -283,7 +283,7 @@ a {
   word-wrap: break-word;
 }
 a:hover {
-  color: #262a30;
+  color: $blue-light;
   border-bottom-color: #262a30;
 }
 ul {
@@ -1344,7 +1344,7 @@ pre .javascript .function {
   border-bottom: none;
 }
 .post-nav-item a:hover {
-  color: #262a30;
+  color: $blue-light;
   border-bottom: none;
 }
 .post-nav-item a:active {
@@ -1663,7 +1663,7 @@ pre .javascript .function {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #ffffe9;
+  background: #a36911;
 }
 .links-of-blogroll {
   font-size: 13px;
