@@ -93,7 +93,7 @@
 <meta property="og:description" content="一、FastCGIFastCGI (Common Gateway Interface), 是 Web Server 与 动态脚本 script 之间的通信接口。更多有关FastCGI的信息 PHP manual.
 二、原理Web Server, 如Nginx、Apache，本身不会对外部 script 直接调用或者解析，所有的 script（如PHP）必须通过FastCGI接口来调用。FastCG">
 <meta property="og:image" content="http://blog.coolstar-pc.top/uploads/2016/05/140224291.png">
-<meta property="og:updated_time" content="2016-08-17T22:50:17.559Z">
+<meta property="og:updated_time" content="2016-08-18T03:07:05.354Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Configure PHP behind Nginx with FastCGI">
 <meta name="twitter:description" content="一、FastCGIFastCGI (Common Gateway Interface), 是 Web Server 与 动态脚本 script 之间的通信接口。更多有关FastCGI的信息 PHP manual.
@@ -110,8 +110,8 @@
     fancybox: true,
     motion: true,
     duoshuo: {
-      userId: 0,
-      author: '博主'
+      userId: 6319991091537905000,
+      author: 'Coolstar'
     }
   };
 </script>
@@ -292,8 +292,34 @@
           </span>
 
           
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/技术/" itemprop="url" rel="index">
+                    <span itemprop="name">技术</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
 
           
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/05/24/configure-php-behind-nginx-with-fastcgi/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/05/24/configure-php-behind-nginx-with-fastcgi/" itemprop="commentsCount"></span>
+                </a>
+              </span>
             
           
 
@@ -302,6 +328,11 @@
           
           
 
+          
+              &nbsp; | &nbsp;
+              <span class="page-pv">本文总阅读量
+              <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>次
+              </span>
           
         </div>
       </header>
@@ -424,6 +455,25 @@ service php-fpm restart
 
     <div class="post-spread">
       
+        <div class="ds-share flat" data-thread-key="2016/05/24/configure-php-behind-nginx-with-fastcgi/"
+     data-title="Configure PHP behind Nginx with FastCGI"
+     data-content=""
+     data-url="http://blog.coolstar-pc.top/2016/05/24/configure-php-behind-nginx-with-fastcgi/">
+  <div class="ds-share-inline">
+    <ul  class="ds-share-icons-16">
+
+      <li data-toggle="ds-share-icons-more"><a class="ds-more" href="javascript:void(0);">分享到：</a></li>
+      <li><a class="ds-weibo" href="javascript:void(0);" data-service="weibo">微博</a></li>
+      <li><a class="ds-qzone" href="javascript:void(0);" data-service="qzone">QQ空间</a></li>
+      <li><a class="ds-qqt" href="javascript:void(0);" data-service="qqt">腾讯微博</a></li>
+      <li><a class="ds-wechat" href="javascript:void(0);" data-service="wechat">微信</a></li>
+
+    </ul>
+    <div class="ds-share-icons-more">
+    </div>
+  </div>
+</div>
+      
     </div>
   </div>
 
@@ -434,6 +484,10 @@ service php-fpm restart
 
           
   <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2016/05/24/configure-php-behind-nginx-with-fastcgi/"
+           data-title="Configure PHP behind Nginx with FastCGI" data-url="http://blog.coolstar-pc.top/2016/05/24/configure-php-behind-nginx-with-fastcgi/">
+      </div>
     
   </div>
 
@@ -472,7 +526,7 @@ service php-fpm restart
                src="/uploads/avatar1.png"
                alt="coolstar" />
           <p class="site-author-name" itemprop="name">coolstar</p>
-          <p class="site-description motion-element" itemprop="description">改变世界的是这么一群人，他们寻找梦想中的乐园，当他们找不到时，便亲手创造了她...</p>
+          <p class="site-description motion-element" itemprop="description">改变世界的是这么一群人，他们寻找梦想中的乐园，当他们找不到时，便亲手创造了她...，致力于 Linux、MySQL、安全、系统架构、CCNP/CCIE、佛学研究</p>
         </div>
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
@@ -483,11 +537,18 @@ service php-fpm restart
           </div>
 
           
+            <div class="site-state-item site-state-categories">
+              <a href="/categories">
+                <span class="site-state-item-count">1</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
 
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">5</span>
+                <span class="site-state-item-count">7</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -597,6 +658,22 @@ service php-fpm restart
 
         
 
+<div class="busuanzi-count">
+
+  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv">本站访客数<span class="busuanzi-value" id="busuanzi_value_site_uv"></span>人次</span>
+  
+
+  
+    <span class="site-pv">总访问量<span class="busuanzi-value" id="busuanzi_value_site_pv"></span>次</span>
+  
+  
+</div>
+
+
+
         
       </div>
     </footer>
@@ -672,9 +749,30 @@ service php-fpm restart
 
   
 
+  
+    
+  
 
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"coolstar"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
 
   
+    
+    <script src="/vendors/ua-parser-js/dist/ua-parser.min.js?v=0.7.9"></script>
+    <script src="/js/src/hook-duoshuo.js"></script>
+  
+
+
 
 
 
