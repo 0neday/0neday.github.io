@@ -16,7 +16,12 @@
 <meta http-equiv="Cache-Control" content="no-transform" />
 <meta http-equiv="Cache-Control" content="no-siteapp" />
 
-
+<link rel="canonical" href="<%- page.permalink %>">
+<script type="text/javascript">
+       var host = "blog.coolstar-pc.top";
+       if ((host == window.location.host) && (window.location.protocol != "https:"))
+           window.location.protocol = "https";
+</script>
 
 
 
@@ -88,17 +93,17 @@
 二、原理Web Server, 如Nginx、Apache，本身不会对外部 script 直接调用或者解析，所有的 script（如PHP）必须通过FastCGI接口来调用。FastCG">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Configure PHP behind Nginx with FastCGI">
-<meta property="og:url" content="http://blog.coolstar-pc.top/2016/05/24/configure-php-behind-nginx-with-fastcgi/index.html">
+<meta property="og:url" content="https://blog.coolstar-pc.top/2016/05/24/configure-php-behind-nginx-with-fastcgi/index.html">
 <meta property="og:site_name" content="0neday's Notes">
 <meta property="og:description" content="一、FastCGIFastCGI (Common Gateway Interface), 是 Web Server 与 动态脚本 script 之间的通信接口。更多有关FastCGI的信息 PHP manual.
 二、原理Web Server, 如Nginx、Apache，本身不会对外部 script 直接调用或者解析，所有的 script（如PHP）必须通过FastCGI接口来调用。FastCG">
-<meta property="og:image" content="http://blog.coolstar-pc.top/uploads/2016/05/140224291.png">
+<meta property="og:image" content="https://blog.coolstar-pc.top/uploads/2016/05/140224291.png">
 <meta property="og:updated_time" content="2016-08-18T05:29:36.274Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Configure PHP behind Nginx with FastCGI">
 <meta name="twitter:description" content="一、FastCGIFastCGI (Common Gateway Interface), 是 Web Server 与 动态脚本 script 之间的通信接口。更多有关FastCGI的信息 PHP manual.
 二、原理Web Server, 如Nginx、Apache，本身不会对外部 script 直接调用或者解析，所有的 script（如PHP）必须通过FastCGI接口来调用。FastCG">
-<meta name="twitter:image" content="http://blog.coolstar-pc.top/uploads/2016/05/140224291.png">
+<meta name="twitter:image" content="https://blog.coolstar-pc.top/uploads/2016/05/140224291.png">
 
 
 
@@ -119,7 +124,7 @@
 
 
 
-  <link rel="canonical" href="http://blog.coolstar-pc.top/2016/05/24/configure-php-behind-nginx-with-fastcgi/"/>
+  <link rel="canonical" href="https://blog.coolstar-pc.top/2016/05/24/configure-php-behind-nginx-with-fastcgi/"/>
 
   <title> Configure PHP behind Nginx with FastCGI | 0neday's Notes </title>
 </head>
@@ -434,7 +439,7 @@
         <div class="ds-share flat" data-thread-key="2016/05/24/configure-php-behind-nginx-with-fastcgi/"
      data-title="Configure PHP behind Nginx with FastCGI"
      data-content=""
-     data-url="http://blog.coolstar-pc.top/2016/05/24/configure-php-behind-nginx-with-fastcgi/">
+     data-url="https://blog.coolstar-pc.top/2016/05/24/configure-php-behind-nginx-with-fastcgi/">
   <div class="ds-share-inline">
     <ul  class="ds-share-icons-16">
 
@@ -462,7 +467,7 @@
   <div class="comments" id="comments">
     
       <div class="ds-thread" data-thread-key="2016/05/24/configure-php-behind-nginx-with-fastcgi/"
-           data-title="Configure PHP behind Nginx with FastCGI" data-url="http://blog.coolstar-pc.top/2016/05/24/configure-php-behind-nginx-with-fastcgi/">
+           data-title="Configure PHP behind Nginx with FastCGI" data-url="https://blog.coolstar-pc.top/2016/05/24/configure-php-behind-nginx-with-fastcgi/">
       </div>
     
   </div>

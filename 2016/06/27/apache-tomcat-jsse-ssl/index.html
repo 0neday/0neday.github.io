@@ -16,7 +16,12 @@
 <meta http-equiv="Cache-Control" content="no-transform" />
 <meta http-equiv="Cache-Control" content="no-siteapp" />
 
-
+<link rel="canonical" href="<%- page.permalink %>">
+<script type="text/javascript">
+       var host = "blog.coolstar-pc.top";
+       if ((host == window.location.host) && (window.location.protocol != "https:"))
+           window.location.protocol = "https";
+</script>
 
 
 
@@ -88,7 +93,7 @@
 思路：先利用 openssl 将 crt 格式的证书转换为 pkcs 12，">
 <meta property="og:type" content="article">
 <meta property="og:title" content="使用 JSSE 配置 Apache Tomcat SSL">
-<meta property="og:url" content="http://blog.coolstar-pc.top/2016/06/27/apache-tomcat-jsse-ssl/index.html">
+<meta property="og:url" content="https://blog.coolstar-pc.top/2016/06/27/apache-tomcat-jsse-ssl/index.html">
 <meta property="og:site_name" content="0neday's Notes">
 <meta property="og:description" content="SSL 证书一般是由 OpenSSL 工具生成 x509 证书（标准的 PKI 管理工具），适用于大部分的 web server，而基于 java 的 web 应用程序（Tomcat），默认情况下，使用 jks 类型证书。因此，在使用 JSSE 配置 SSL 之前，需要将 x509 类型的证书转换成 jks 类型的证书。
 思路：先利用 openssl 将 crt 格式的证书转换为 pkcs 12，">
@@ -117,7 +122,7 @@
 
 
 
-  <link rel="canonical" href="http://blog.coolstar-pc.top/2016/06/27/apache-tomcat-jsse-ssl/"/>
+  <link rel="canonical" href="https://blog.coolstar-pc.top/2016/06/27/apache-tomcat-jsse-ssl/"/>
 
   <title> 使用 JSSE 配置 Apache Tomcat SSL | 0neday's Notes </title>
 </head>
@@ -426,7 +431,7 @@
         <div class="ds-share flat" data-thread-key="2016/06/27/apache-tomcat-jsse-ssl/"
      data-title="使用 JSSE 配置 Apache Tomcat SSL"
      data-content=""
-     data-url="http://blog.coolstar-pc.top/2016/06/27/apache-tomcat-jsse-ssl/">
+     data-url="https://blog.coolstar-pc.top/2016/06/27/apache-tomcat-jsse-ssl/">
   <div class="ds-share-inline">
     <ul  class="ds-share-icons-16">
 
@@ -454,7 +459,7 @@
   <div class="comments" id="comments">
     
       <div class="ds-thread" data-thread-key="2016/06/27/apache-tomcat-jsse-ssl/"
-           data-title="使用 JSSE 配置 Apache Tomcat SSL" data-url="http://blog.coolstar-pc.top/2016/06/27/apache-tomcat-jsse-ssl/">
+           data-title="使用 JSSE 配置 Apache Tomcat SSL" data-url="https://blog.coolstar-pc.top/2016/06/27/apache-tomcat-jsse-ssl/">
       </div>
     
   </div>

@@ -5,7 +5,7 @@
     
     <entry>
       <title><![CDATA[使用 APR 配置 Apache Tomcat SSL]]></title>
-      <url>http://blog.coolstar-pc.top/2016/06/28/apache-tomcat-apr-ssl/</url>
+      <url>https://blog.coolstar-pc.top/2016/06/28/apache-tomcat-apr-ssl/</url>
       <content type="html"><![CDATA[<p>上次，我们讨论了在 Apache Tomcat 上，使用 JSSE 配置 SSL。可以看出，使用 keytool 将 x509 类型的证书转换成 java 应用程序所支持的 jks 比较繁琐（不仅需要导入 user 证书，还需要导入中间 CA ），另外，不使用 <a href="https://tomcat.apache.org/tomcat-7.0-doc/apr.html" target="_blank" rel="external">APR</a> ，在一定程度上，削弱了 Tomcat 本身具有的性能。<br><a id="more"></a></p>
 <p><strong>步骤：</strong></p>
 <p>1. 编译，获取 libtcnative 共享库<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">cd</span> <span class="variable">$CATALINA_HOME</span>/bin/tomcat-native-1.1.23-src/jni/native</div><div class="line">./configure  --with-apr=/usr/<span class="built_in">local</span>/apr</div><div class="line">             --prefix=/opt/apache-tomcat-7</div></pre></td></tr></table></figure></p>
@@ -18,7 +18,7 @@
     
     <entry>
       <title><![CDATA[使用 JSSE 配置 Apache Tomcat SSL]]></title>
-      <url>http://blog.coolstar-pc.top/2016/06/27/apache-tomcat-jsse-ssl/</url>
+      <url>https://blog.coolstar-pc.top/2016/06/27/apache-tomcat-jsse-ssl/</url>
       <content type="html"><![CDATA[<p>SSL 证书一般是由 OpenSSL 工具生成 <a href="https://en.wikipedia.org/wiki/X.509" target="_blank" rel="external">x509</a> 证书（标准的<a href="https://en.wikipedia.org/wiki/Public_key_infrastructure" target="_blank" rel="external"> PKI</a> 管理工具），适用于大部分的 web server，而基于 java 的 web 应用程序（Tomcat），默认情况下，使用 <a href="https://en.wikipedia.org/wiki/Keystore" target="_blank" rel="external">jks</a> 类型证书。因此，在使用 <a href="https://tomcat.apache.org/tomcat-7.0-doc/ssl-howto.html#Configuration" target="_blank" rel="external">JSSE</a> 配置 SSL 之前，需要将 x509 类型的证书转换成 jks 类型的证书。</p>
 <p><strong>思路：</strong>先利用 openssl 将 crt 格式的证书转换为 <a href="https://en.wikipedia.org/wiki/PKCS_12" target="_blank" rel="external">pkcs 12</a>，再使用 keytool 将pkcs 12 转换成 jks。<br><a id="more"></a><br>第一步，从key和crt生成pkcs12格式 </p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">openssl pkcs12 -export -in mycert.crt -inkey mykey.key </div><div class="line">               -out mycert.p12 -name tomcat </div><div class="line">               -CAfile myCA.crt -caname root -chain</div></pre></td></tr></table></figure>
@@ -32,7 +32,7 @@
     
     <entry>
       <title><![CDATA[NGX_LUA]]></title>
-      <url>http://blog.coolstar-pc.top/2016/06/10/ngx-lua/</url>
+      <url>https://blog.coolstar-pc.top/2016/06/10/ngx-lua/</url>
       <content type="html"><![CDATA[<p>&nbsp;</p>
 <p>Nginx 是一个高性能，支持高并发的，轻量级的 Web Sever。 Nginx 采用模块化的架构， 可以通过开发 Nginx 的扩展模块 ， 将 Nginx 打造成一个全能的 Web Sever， 即将一些功能在前端 Nginx 反向代理层解决，比如登录校验、js 合并等。</p>
 <h5 id="1-Nginx-进程模型"><a href="#1-Nginx-进程模型" class="headerlink" title="1. Nginx 进程模型"></a><strong>1. Nginx 进程模型</strong></h5><p><img src="/uploads/2016/06/0_1330494922Q49n.gif" alt="0_1330494922Q49n"><br><a id="more"></a></p>
@@ -45,7 +45,7 @@
     
     <entry>
       <title><![CDATA[IPv6 link-local address]]></title>
-      <url>http://blog.coolstar-pc.top/2016/06/08/ipv6-link-local-address/</url>
+      <url>https://blog.coolstar-pc.top/2016/06/08/ipv6-link-local-address/</url>
       <content type="html"><![CDATA[<p>&nbsp;</p>
 <p><a href="https://msdn.microsoft.com/en-us/library/aa921042.aspx" target="_blank" rel="external">IPv6 </a>defines at least three<a href="https://msdn.microsoft.com/en-us/library/aa917150.aspx" target="_blank" rel="external"> reachability scopes</a> for addresses:</p>
 <ol>
@@ -58,7 +58,7 @@
     
     <entry>
       <title><![CDATA[Nginx + Apache Tomcat Configuration]]></title>
-      <url>http://blog.coolstar-pc.top/2016/06/07/nginx-apache-tomcat-configuration/</url>
+      <url>https://blog.coolstar-pc.top/2016/06/07/nginx-apache-tomcat-configuration/</url>
       <content type="html"><![CDATA[<p>&nbsp;</p>
 <p><strong>目标：</strong>使用 Nginx 作为反向代理服务器，重定向 80/443 port 的数据到 Apache Tomcat（Listening 127.0.0.1:8080），以提高 web server 的响应速度和性能，提升用户的访问体验。</p>
  <a id="more"></a>
@@ -76,7 +76,7 @@
     
     <entry>
       <title><![CDATA[MySQL 5.7.12 Compile and Install]]></title>
-      <url>http://blog.coolstar-pc.top/2016/05/27/mysql-5-7-12-compile-and-install/</url>
+      <url>https://blog.coolstar-pc.top/2016/05/27/mysql-5-7-12-compile-and-install/</url>
       <content type="html"><![CDATA[<p><strong>MySQL 5.7 主要特性：</strong></p>
 <ul>
 <li>更好的性能：对于多核CPU、固态硬盘，有着更好的优化</li>
@@ -111,7 +111,7 @@
     
     <entry>
       <title><![CDATA[OpenSSL Certificate Authority]]></title>
-      <url>http://blog.coolstar-pc.top/2016/05/25/openssl-certificate-authority/</url>
+      <url>https://blog.coolstar-pc.top/2016/05/25/openssl-certificate-authority/</url>
       <content type="html"><![CDATA[<h5 id="一、OpenSSL"><a href="#一、OpenSSL" class="headerlink" title="一、OpenSSL"></a>一、OpenSSL</h5><p><a href="https://en.wikipedia.org/wiki/OpenSSL" target="_blank" rel="external">OpenSSL</a> is a free and open-source cryptographic library that provides several command-line tools for handling digital certificates.</p>
 <p>OpenSSL 是一种加密工具，包含开源的 SSL/TLS 协议实现，command-line tools, 以及各种各样的加密函数库，这些加密库函数可以被开发者调用，开发各种基于 UI 的加密工具。<br><a id="more"></a></p>
 <h5 id="二、CA"><a href="#二、CA" class="headerlink" title="二、CA"></a>二、CA</h5><p><a href="https://en.wikipedia.org/wiki/Certificate_authority" target="_blank" rel="external">CA</a> (certificate authority) is an entity that signs digital certificates. Many websites need to let their customers know that the connection is secure, so they pay an internationally trusted CA (eg, VeriSign, DigiCert) to sign a certificate for their domain.</p>
@@ -139,7 +139,7 @@
     
     <entry>
       <title><![CDATA[Struts2 Exploit CVE-2016-3081]]></title>
-      <url>http://blog.coolstar-pc.top/2016/05/25/struts2-exploit-cve-2016-3081/</url>
+      <url>https://blog.coolstar-pc.top/2016/05/25/struts2-exploit-cve-2016-3081/</url>
       <content type="html"><![CDATA[<p><a href="http://drops.wooyun.org/papers/15430" target="_blank" rel="external">CVE-2016-3081</a>, 官方为S2-032漏洞。在开启动态方法调用 <a href="https://struts.apache.org/docs/action-configuration.html#ActionConfiguration-DynamicMethodInvocation" target="_blank" rel="external">DMI</a> （Dynamic Method Invocation）的情况下，会被攻击者实现远程代码执行攻击。受影响的版本有2.3.18-2.3.28(除 2.3.20.2 and 2.3.24.2)。</p>
 <h5 id="一、漏洞触发条件"><a href="#一、漏洞触发条件" class="headerlink" title="一、漏洞触发条件"></a>一、漏洞触发条件</h5><p>1. struts.xml里开启DMI<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;constant name=<span class="string">"struts.enable.DynamicMethodInvocation"</span> value=<span class="string">"true"</span>&gt;</div></pre></td></tr></table></figure></p>
 <a id="more"></a>
@@ -154,7 +154,7 @@
     
     <entry>
       <title><![CDATA[Configure PHP behind Nginx with FastCGI]]></title>
-      <url>http://blog.coolstar-pc.top/2016/05/24/configure-php-behind-nginx-with-fastcgi/</url>
+      <url>https://blog.coolstar-pc.top/2016/05/24/configure-php-behind-nginx-with-fastcgi/</url>
       <content type="html"><![CDATA[<h5 id="一、FastCGI"><a href="#一、FastCGI" class="headerlink" title="一、FastCGI"></a>一、FastCGI</h5><p>FastCGI (Common Gateway Interface), 是 Web Server 与 动态脚本 script 之间的通信接口。更多有关FastCGI的信息 <a href="http://php.net/manual/en/install.fpm.php" target="_blank" rel="external">PHP manual</a>.</p>
 <h5 id="二、原理"><a href="#二、原理" class="headerlink" title="二、原理"></a>二、原理</h5><p>Web Server, 如Nginx、Apache，本身不会对外部 script 直接调用或者解析，所有的 script（如PHP）必须通过FastCGI接口来调用。FastCGI 接口通过 socket 或者daemon（绑定一个特定的端口9000）与 Web Server 交互。</p>
 <p><img src="/uploads/2016/05/140224291.png" alt="140224291"><br><a id="more"></a></p>
@@ -174,7 +174,7 @@
     
     <entry>
       <title><![CDATA[Hello World]]></title>
-      <url>http://blog.coolstar-pc.top/2016/01/27/hello-world/</url>
+      <url>https://blog.coolstar-pc.top/2016/01/27/hello-world/</url>
       <content type="html"><![CDATA[<p>Welcome to <a href="https://hexo.io/" target="_blank" rel="external">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="external">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="external">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="external">GitHub</a>.</p>
 <h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo new <span class="string">"My New Post"</span></div></pre></td></tr></table></figure>
 <a id="more"></a>
