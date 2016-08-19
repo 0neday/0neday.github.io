@@ -44,10 +44,4 @@ server {
 		access_log off;
 	}
 
-	location /wp-admin {
-	    allow 219.219.195.230;
-	    allow 127.0.0.1;
-	    deny  all;
-	}
-
 }
