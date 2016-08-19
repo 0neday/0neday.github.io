@@ -149,7 +149,7 @@
 <p>那么要访问action的other() 方法，我们可以这样调用，action类前加感叹号：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">/struts/<span class="built_in">test</span>/helloworld!other.action</div></pre></td></tr></table></figure></p>
 <h5 id="二、测试"><a href="#二、测试" class="headerlink" title="二、测试"></a>二、测试</h5><p>直接使用源码包里的struts-2.3.28/apps/struts2-showcase.war作为测试对象，部署到Apache-tomcat上。使用github上公开的漏洞源码<strong><a href="https://github.com/rapid7/metasploit-framework/blob/master/modules/exploits/linux/http/struts_dmi_exec.rb" target="_blank" rel="external">struts_dmi_exec</a>。</strong>在Kali Linux2.0 上的测试结果：</p>
 <p><img src="/uploads/2016/05/Selection_001.png" alt="Selection_001"></p>
-<h5 id="三、demo"><a href="#三、demo" class="headerlink" title="三、demo_"></a>三、demo_</h5><p><a href="http://pan.baidu.com/s/1kUADU5L" target="_blank" rel="external">here</a>.</p>
+<h5 id="三、demo"><a href="#三、demo" class="headerlink" title="三、demo"></a>三、<em>demo</em></h5><p><a href="http://pan.baidu.com/s/1kUADU5L" target="_blank" rel="external">here</a>.</p>
 ]]></content>
     </entry>
     
