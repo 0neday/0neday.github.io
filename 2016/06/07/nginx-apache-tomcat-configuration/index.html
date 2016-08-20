@@ -83,20 +83,17 @@
 
 
 
-<meta name="description" content="&amp;nbsp;
-目标：使用 Nginx 作为反向代理服务器，重定向 80/443 port 的数据到 Apache Tomcat（Listening 127.0.0.1:8080），以提高 web server 的响应速度和性能，提升用户的访问体验。">
+<meta name="description" content="目标：使用 Nginx 作为反向代理服务器，重定向 80/443 port 的数据到 Apache Tomcat（Listening 127.0.0.1:8080），以提高 web server 的响应速度和性能，提升用户的访问体验。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Nginx + Apache Tomcat Configuration">
 <meta property="og:url" content="https://blog.coolstar-pc.top/2016/06/07/nginx-apache-tomcat-configuration/index.html">
 <meta property="og:site_name" content="0neday's Notes">
-<meta property="og:description" content="&amp;nbsp;
-目标：使用 Nginx 作为反向代理服务器，重定向 80/443 port 的数据到 Apache Tomcat（Listening 127.0.0.1:8080），以提高 web server 的响应速度和性能，提升用户的访问体验。">
+<meta property="og:description" content="目标：使用 Nginx 作为反向代理服务器，重定向 80/443 port 的数据到 Apache Tomcat（Listening 127.0.0.1:8080），以提高 web server 的响应速度和性能，提升用户的访问体验。">
 <meta property="og:image" content="https://blog.coolstar-pc.top/uploads/2016/06/tt.png">
-<meta property="og:updated_time" content="2016-08-19T02:08:38.469Z">
+<meta property="og:updated_time" content="2016-08-20T07:45:46.465Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Nginx + Apache Tomcat Configuration">
-<meta name="twitter:description" content="&amp;nbsp;
-目标：使用 Nginx 作为反向代理服务器，重定向 80/443 port 的数据到 Apache Tomcat（Listening 127.0.0.1:8080），以提高 web server 的响应速度和性能，提升用户的访问体验。">
+<meta name="twitter:description" content="目标：使用 Nginx 作为反向代理服务器，重定向 80/443 port 的数据到 Apache Tomcat（Listening 127.0.0.1:8080），以提高 web server 的响应速度和性能，提升用户的访问体验。">
 <meta name="twitter:image" content="https://blog.coolstar-pc.top/uploads/2016/06/tt.png">
 
 
@@ -351,10 +348,10 @@
       
 
       
-        <p>&nbsp;</p>
-<p><strong>目标：</strong>使用 Nginx 作为反向代理服务器，重定向 80/443 port 的数据到 Apache Tomcat（Listening 127.0.0.1:8080），以提高 web server 的响应速度和性能，提升用户的访问体验。</p>
+        <p><strong>目标：</strong>使用 Nginx 作为反向代理服务器，重定向 80/443 port 的数据到 Apache Tomcat（Listening 127.0.0.1:8080），以提高 web server 的响应速度和性能，提升用户的访问体验。</p>
  <a id="more"></a>
-<p> <img src="/uploads/2016/06/tt.png" alt="tt"> </p>
+ <div align="center"><br> <img src="/uploads/2016/06/tt.png" width="220"><br> </div>
+
 <h5 id="一、-Nginx-配置"><a href="#一、-Nginx-配置" class="headerlink" title="一、 Nginx 配置"></a>一、 Nginx 配置</h5><p>1.将Nginx配置成反向代理服务器，参考 <a href="http://www.mkyong.com/nginx/nginx-apache-tomcat-configuration-example/" target="_blank" rel="external">example</a></p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">server &#123;</div><div class="line">        .....</div><div class="line">	location / &#123;</div><div class="line">		proxy_set_header X-Forwarded-Host <span class="variable">$host</span>;</div><div class="line">		proxy_set_header X-Forwarded-Server <span class="variable">$host</span>;</div><div class="line">		proxy_set_header X-Forwarded-For <span class="variable">$proxy_add_x_forwarded_for</span>;</div><div class="line">		proxy_pass http://127.0.0.1:8080/;</div><div class="line">	&#125;</div><div class="line">        .....</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <p>2.添加缓存 <a href="https://www.nginx.com/blog/nginx-caching-guide/" target="_blank" rel="external">cache</a><br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">proxy_cache_path /opt/nginx/cache levels=1:2 keys_zone=my_cache:10m max_size=10g inactive=60m use_temp_path=off;</div><div class="line">server &#123;</div><div class="line">	....</div><div class="line"></div><div class="line">	proxy_cache my_cache;</div><div class="line">	proxy_cache_valid  200 302  60m;</div><div class="line">	proxy_cache_valid  404      1m;</div><div class="line">	client_max_body_size 20M;</div><div class="line"></div><div class="line">        .....</div><div class="line"></div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
