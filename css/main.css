@@ -1663,7 +1663,7 @@ pre .javascript .function {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #08ada3;
+  background: #20bd5e;
 }
 .links-of-blogroll {
   font-size: 13px;
@@ -2560,4 +2560,8 @@ body {
 }
 .post-body a {
   color: #0684bd;
+}
+.posts-expand .post-body img {
+  text-align: center;
+  margin: 0 auto;
 }
