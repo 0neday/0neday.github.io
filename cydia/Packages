@@ -15,41 +15,16 @@ Size: 782
 MD5sum: ba1c60d664dd613759b063f31d354658 
 Filename: net.angelxwind.allmailactions_1.0-3_iphoneos-arm.deb
 
-Conflicts: us.hackulo.appsync50, us.hackulo.appsync50plus, com.hackyouriphone.appsync7, com.teiron.ppsync, appsync50plus2.25pp
-Depends: mobilesubstrate
-Depiction: http://cydia.angelxwind.net/?page/net.angelxwind.appsyncunified
-Maintainer: Karen Tsai (angelXwind) <angelXwind@angelxwind.net>
-Homepage: http://cydia.angelxwind.net/
-Provides: appsync
-Replaces: us.hackulo.appsync50
-Package: net.angelxwind.appsyncunified
-Name: AppSync Unified
-Pre-Depends: firmware (>= 5.0), mobilesubstrate (>= 0.9.5000)
-Architecture: iphoneos-arm
-Description: AppSync Unified allows you to sync and install unsigned iOS applications. Works on iOS 5, 6, and 7.
-Section: Tweaks
-Author: Linus Yang, Karen Tsai <angelXwind@angelxwind.net>
-Version: 4.4-1
-Size: 4074 
-MD5sum: e337c776768d5b63243316232371fa1e 
-Filename: net.angelxwind.appsyncunified_4.4-1_iphoneos-arm.deb
-
 Package: net.angelxwind.preferenceorganizer2
 Section: Tweaks
-Maintainer: Karen Tsai (angelXwind) <angelXwind@angelxwind.net>
+Maintainer: 0neday
 Architecture: iphoneos-arm
 Version: 2.5.1-1
-Replaces: org.ilendsoft.preferenceorganizer, com.eliz.preferenceorganizer7
 Depends: mobilesubstrate, preferenceloader, firmware (>= 6.0)
-Conflicts: com.phillipt.noappsettings, jp.r-plus.cloaky, me.qusic.preferenceorganizer, com.sull.preferenceorganizer, com.sull.preferenceorganizer2, com.sull.preferenceorganizer7
 Description: A simple and free alternative to PreferenceFolders, compatible with iOS 6 and 7. PreferenceOrganizer 2 organises your Settings app into 4 toggleable categories: Apple Apps, Social Apps, Tweaks, and App Store Apps.
-Name: PreferenceOrganizer 2
-Homepage: http://cydia.angelxwind.net/
-Depiction: http://cydia.angelxwind.net/?page/net.angelxwind.preferenceorganizer2
-Author: Karen, Hiraku, Gary, Eliz, insanj <angelXwind@angelxwind.net>
-Icon: file:///Library/PreferenceBundles/POPreferences.bundle/Tweaks@2x.png
-Size: 31466 
-MD5sum: 7c6d6a6814e5bff95e11e0766a161332 
+
+Size: 31186 
+MD5sum: 9841818dc1e5323ac64d0682f035c405 
 Filename: net.angelxwind.preferenceorganizer2_2.5.1-1_iphoneos-arm.deb
 
 Package: net.angelxwind.safestrat
