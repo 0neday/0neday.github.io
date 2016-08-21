@@ -6,16 +6,13 @@ Depends: firmware (>= 5.0), mobilesubstrate
 Version: 1.0-3
 Architecture: iphoneos-arm
 Description: enables Delete, Mark & Move All in Mail app
-Homepage: http://moreinfo.thebigboss.org/moreinfo/depiction.php?file=allmailactionsDp
-Depiction: http://moreinfo.thebigboss.org/moreinfo/depiction.php?file=allmailactionsDp
-Sponsor: thebigboss.org <http://thebigboss.org>
-Maintainer: BigBoss <bigboss@thebigboss.org>
+Maintainer: 0neday 
 Author: Karen Tsai (angelXwind) <angelXwind@angelxwind.net>
 dev: angelxwind
 Section: Tweaks
 Tag: purpose::extension
-Size: 858 
-MD5sum: 52d6ff1aab45e34fbe14bb49b0a1e985 
+Size: 782 
+MD5sum: ba1c60d664dd613759b063f31d354658 
 Filename: net.angelxwind.allmailactions_1.0-3_iphoneos-arm.deb
 
 Conflicts: us.hackulo.appsync50, us.hackulo.appsync50plus, com.hackyouriphone.appsync7, com.teiron.ppsync, appsync50plus2.25pp
@@ -63,10 +60,10 @@ Architecture: iphoneos-arm
 Author: comex, 0neday <angelXwind@angelxwind.net>
 Homepage: http://cydia.angelxwind.net/
 Depiction: http://cydia.angelxwind.net/?page/net.angelxwind.safestrat
-Maintainer: Karen Tsai (angelXwind) <angelXwind@angelxwind.net>
+Maintainer: 0neday
 Version: 1.0.2-2
-Size: 10014 
-MD5sum: 642196c0eae1c7fa6356f9f1835c3b19 
+Size: 10002 
+MD5sum: 420d7d38d0db00c6cabe9368b32b501b 
 Filename: net.angelxwind.safestrat_1.0.2-2_iphoneos-arm.deb
 
 Package: openssh-tiny
@@ -105,11 +102,11 @@ Filename: uk.nanmu.crontab_1.0.1_iphoneos-arm.deb
 
 Package: uk.nanmu.install.startup
 Section: System
-Maintainer: nanmu4s <guanyin7@icloud.com>
+Maintainer: 0neday <guanyin7@icloud.com>
 Architecture: iphoneos-arm
 Version: 1.0.1
 Name: Deb Installer
 Author: nanmu4s <583301743@qq.com>
-Size: 4072 
-MD5sum: 545c2496ed41ebf624516ff3b508086c 
+Size: 4070 
+MD5sum: 02a7905aa51524f597af311f06809ca3 
 Filename: uk.nanmu.install.startup_1.0.1_iphoneos-arm.deb
