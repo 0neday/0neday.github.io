@@ -60,13 +60,13 @@ Name: safestrat
 Description: Volume-down or Volume-up at boot for SSH over USB
 Section: Utilities
 Architecture: iphoneos-arm
-Author: comex, 0day <angelXwind@angelxwind.net>
+Author: comex, 0neday <angelXwind@angelxwind.net>
 Homepage: http://cydia.angelxwind.net/
 Depiction: http://cydia.angelxwind.net/?page/net.angelxwind.safestrat
 Maintainer: Karen Tsai (angelXwind) <angelXwind@angelxwind.net>
 Version: 1.0.2-2
-Size: 10000 
-MD5sum: dc81d56b28a6a06404f84f8b07baffdd 
+Size: 10014 
+MD5sum: 642196c0eae1c7fa6356f9f1835c3b19 
 Filename: net.angelxwind.safestrat_1.0.2-2_iphoneos-arm.deb
 
 Package: openssh-tiny
