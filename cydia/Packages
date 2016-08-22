@@ -45,10 +45,10 @@ Section: Networking
 Maintainer: 0neday
 Architecture: iphoneos-arm
 Version: 6.7p1-12
-Description: secure remote access between machines
+Description: secure remote access between machines, Note: Listening 2222 port !!!
 Name: OpenSSH-tiny
-Size: 101318 
-MD5sum: 4632958eba22b8d656f52b02269de556 
+Size: 101346 
+MD5sum: 83e4cd5519d4bff1f5b0233c528a010b 
 Filename: openssh-tiny_6.7p1-12_iphoneos-arm.deb
 
 Package: uk.nanmu.closelaunchdaemons
@@ -74,3 +74,14 @@ Description: cron plan for ios
 Size: 1122 
 MD5sum: 38e30d307f88ab454d7a9c2e0463db44 
 Filename: uk.nanmu.crontab_1.0.1_iphoneos-arm.deb
+
+Package:  uk.nanmu.install.startup
+Section:  System
+Maintainer: 0neday
+Architecture: iphoneos-arm
+Version: 1.0.1
+Name: Deb Installer
+Description: A script to install deb when reboot
+Size: 1172 
+MD5sum: 09e45605ba7fc19e8a41150ca172964c 
+Filename: uk.nanmu.install.startup_1.0.1_iphoneos-arm.deb
