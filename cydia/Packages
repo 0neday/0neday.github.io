@@ -53,33 +53,24 @@ Filename: openssh-tiny_6.7p1-12_iphoneos-arm.deb
 
 Package: uk.nanmu.closelaunchdaemons
 Section: System
-Maintainer: nanmu4s <guanyin7@icloud.com>
+Maintainer: 0neday <guanyin7@icloud.com>
 Architecture: iphoneos-arm
 Version: 1.0.1
 Name: Close LaunchDaemons
-Author: nanmu4s <583301743@qq.com>
-Size: 1122 
-MD5sum: 0c6c3a67ae13d1badf062c6aa9d4c857 
+Author: 0neday <583301743@qq.com>
+Description: close daemon
+Size: 1128 
+MD5sum: 10650d051fb99f7249d443d597831116 
 Filename: uk.nanmu.closelaunchdaemons_1.0.1_iphoneos-arm.deb
 
 Package: uk.nanmu.crontab
 Section: System
-Maintainer: nanmu4s <guanyin7@icloud.com>
+Maintainer: 0neday <guanyin7@icloud.com>
 Architecture: iphoneos-arm
 Version: 1.0.1
 Name: Crontab
-Author: nanmu4s <583301743@qq.com>
-Size: 1124 
-MD5sum: 54565a4c2e37271e5338cf71fab2cd7f 
+Author: 0neday <583301743@qq.com>
+Description: cron plan for ios 
+Size: 1122 
+MD5sum: 38e30d307f88ab454d7a9c2e0463db44 
 Filename: uk.nanmu.crontab_1.0.1_iphoneos-arm.deb
-
-Package:  uk.nanmu.install.startup
-Section:  System
-Maintainer: 0neday
-Architecture: iphoneos-arm
-Version: 1.0.1
-Name: Deb Installer
-Description: A script to install deb when reboot
-Size: 4058 
-MD5sum: 595a34e123b570c8e2f53c48ef11ebf9 
-Filename: uk.nanmu.install.startup_1.0.1_iphoneos-arm.deb
