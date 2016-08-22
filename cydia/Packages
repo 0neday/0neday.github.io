@@ -18,13 +18,14 @@ Filename: net.angelxwind.allmailactions_1.0-3_iphoneos-arm.deb
 Package: net.angelxwind.preferenceorganizer2
 Section: Tweaks
 Name: Preference Organizer
+Author: Karen Tsai (angelXwind) <angelXwind@angelxwind.net>
 Maintainer: 0neday
 Architecture: iphoneos-arm
 Version: 2.5.1-1
 Depends: mobilesubstrate, preferenceloader, firmware (>= 6.0)
 Description: A simple and free alternative to PreferenceFolders, compatible with iOS 6 and 7. PreferenceOrganizer 2 organises your Settings app into 4 toggleable categories: Apple Apps, Social Apps, Tweaks, and App Store Apps.
-Size: 31182 
-MD5sum: 3c8e92f8cc6fe8c0ebcf409ee981097b 
+Size: 31214 
+MD5sum: dc5c0aada21e717224d4ae935b11dcec 
 Filename: net.angelxwind.preferenceorganizer2_2.5.1-1_iphoneos-arm.deb
 
 Package: net.angelxwind.safestrat
