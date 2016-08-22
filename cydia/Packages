@@ -11,8 +11,8 @@ Author: Karen Tsai (angelXwind) <angelXwind@angelxwind.net>
 dev: angelxwind
 Section: Tweaks
 Tag: purpose::extension
-Size: 782 
-MD5sum: ba1c60d664dd613759b063f31d354658 
+Size: 764 
+MD5sum: 64980555b764ac559fcc5e2385d11410 
 Filename: net.angelxwind.allmailactions_1.0-3_iphoneos-arm.deb
 
 Package: net.angelxwind.preferenceorganizer2
@@ -23,9 +23,8 @@ Architecture: iphoneos-arm
 Version: 2.5.1-1
 Depends: mobilesubstrate, preferenceloader, firmware (>= 6.0)
 Description: A simple and free alternative to PreferenceFolders, compatible with iOS 6 and 7. PreferenceOrganizer 2 organises your Settings app into 4 toggleable categories: Apple Apps, Social Apps, Tweaks, and App Store Apps.
-
-Size: 31198 
-MD5sum: e1b86785138f8bfb9ef9c308797208fd 
+Size: 31182 
+MD5sum: 3c8e92f8cc6fe8c0ebcf409ee981097b 
 Filename: net.angelxwind.preferenceorganizer2_2.5.1-1_iphoneos-arm.deb
 
 Package: net.angelxwind.safestrat
@@ -33,13 +32,11 @@ Name: safestrat
 Description: Volume-down or Volume-up at boot for SSH over USB
 Section: Utilities
 Architecture: iphoneos-arm
-Author: comex, 0neday <angelXwind@angelxwind.net>
-Homepage: http://cydia.angelxwind.net/
-Depiction: http://cydia.angelxwind.net/?page/net.angelxwind.safestrat
+Author: comex
 Maintainer: 0neday
 Version: 1.0.2-2
-Size: 10002 
-MD5sum: 420d7d38d0db00c6cabe9368b32b501b 
+Size: 9926 
+MD5sum: 3602bd1b687437d81eabd4991103645e 
 Filename: net.angelxwind.safestrat_1.0.2-2_iphoneos-arm.deb
 
 Package: openssh-tiny
@@ -76,14 +73,13 @@ Size: 1124
 MD5sum: 54565a4c2e37271e5338cf71fab2cd7f 
 Filename: uk.nanmu.crontab_1.0.1_iphoneos-arm.deb
 
-Package: uk.nanmu.install.startup
-Section: System
-Maintainer: 0neday <guanyin7@icloud.com>
+Package:  uk.nanmu.install.startup
+Section:  System
+Maintainer: 0neday
 Architecture: iphoneos-arm
 Version: 1.0.1
 Name: Deb Installer
 Description: A script to install deb when reboot
-
-Size: 4074 
-MD5sum: fd3111492fe562214f2f9eccb95b491c 
+Size: 4058 
+MD5sum: 595a34e123b570c8e2f53c48ef11ebf9 
 Filename: uk.nanmu.install.startup_1.0.1_iphoneos-arm.deb
