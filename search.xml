@@ -85,11 +85,9 @@
 <li>更好的优化器</li>
 <li>原生JSON类型的支持</li>
 <li>更好的地理信息服务支持：支持GeoJSON，GeoHash特性</li>
-<li>新增sys库：<br>新版 mysql 5.7.12 编译、安装以及配置注意事项：<a id="more"></a>
-</li>
+<li>新增sys库<br>新版 mysql 5.7.12 编译、安装以及配置注意事项：</li>
 </ul>
-<p>1. 编译</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">cmake -DCMAKE_INSTALL_PREFIX=/opt/mysql -DMYSQL_DATADIR=/opt/mysql-data -DSYSCONFDIR=/opt/mysql/etc -DEXTRA_CHARSETS=all -DDEFAULT_CHARSET=utf8 -DDEFAULT_COLLATION=utf8_general_ci -DWITH_BOOST=boost_1_59_0 .</div></pre></td></tr></table></figure>
+<p>1. 编译<br><a id="more"></a><br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">cmake -DCMAKE_INSTALL_PREFIX=/opt/mysql -DMYSQL_DATADIR=/opt/mysql-data -DSYSCONFDIR=/opt/mysql/etc -DEXTRA_CHARSETS=all -DDEFAULT_CHARSET=utf8 -DDEFAULT_COLLATION=utf8_general_ci -DWITH_BOOST=boost_1_59_0 .</div></pre></td></tr></table></figure></p>
 <p><a href="https://dev.mysql.com/doc/refman/5.7/en/source-configuration-options.html" target="_blank" rel="external">选项参数</a>。datadir 的路径不要放在安装目录下，应该单独分开。否则，启动 mysqld 时，会报无法更新 pid 的错误。需要事先下载 boost 放在编译目录下。</p>
 <p>2. 安装</p>
 <p>备份数据库，卸载所有旧版本的 mysqld 及其依赖包。在 /opt/mysql/etc 下创建 my.cnf, 配置如下：<br>// my.cnf<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">[mysqld]</div><div class="line">basedir = /opt/mysql</div><div class="line">datadir = /opt/mysql-data</div><div class="line">user = mysql</div><div class="line"><span class="built_in">bind</span>-address = 127.0.0.1</div><div class="line">port = 3306</div><div class="line">symbolic-links = 0</div><div class="line">socket = /var/run/mysqld/mysqld.sock // 参考php配置，php-fpm 连接 mysqld</div><div class="line">pid-file = /opt/mysql-data/mysql.pid</div><div class="line">[client]</div><div class="line">socket = /var/run/mysqld/mysqld.sock</div></pre></td></tr></table></figure></p>
